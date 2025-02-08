@@ -57,11 +57,7 @@
 │   ├── 📂 data                  
 │   │   ├── sampleProjects.ts  
 │   │   ├── sampleTasks.ts  
-│   │  
-│   ├── 📂 styles                
-│   │   ├── globals.css  
-│   │   ├── tailwind.css  
-│   │  
+│   │   
 │   ├── 📂 router               
 │   │   ├── AppRouter.tsx  
 │   │  
