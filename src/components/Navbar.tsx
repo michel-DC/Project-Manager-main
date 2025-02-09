@@ -9,6 +9,7 @@ function Navbar() {
         <li>Settings</li>
       </ul>
     </div>
+    // test for a commit 
   );
 }
 
