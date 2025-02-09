@@ -64,8 +64,14 @@
 │   ├── main.tsx               
 │   ├── App.tsx                 
 │  
-├── 📄 .gitignore              
-├── 📄 package.json            
+├── 📄 .gitignore     
+├── 📄 eslint.config.js 
+├── 📄 index.html     
+├── 📄 package-lock.json       
+├── 📄 package.json   
+├── 📄 postcss.config.mjs
+├── 📄 tsconfig.app.json           
 ├── 📄 tsconfig.json          
+├── 📄 tsconfig.node.json  
 ├── 📄 vite.config.ts          
 └── 📄 README.md                
