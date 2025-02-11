@@ -1,17 +1,32 @@
+import { Project } from "../data/types";
+
+interface ProjectCardProps {
+  project: Project;
+}
+
 export const sampleProjects = [
   {
     id: 1,
-    name: "Portfolio",
-    description: "Création de mon portfolio en React",
+    name: "Project One",
+    description: "This is the first project",
+    duration: "3 months",
+    language: "JavaScript",
+    status: "Completed",
   },
   {
     id: 2,
-    name: "E-commerce",
-    description: "Développement d'un site de e-commerce",
+    name: "Project Two",
+    description: "This is the second project",
+    duration: "2 months",
+    language: "TypeScript",
+    status: "In Progress",
   },
   {
     id: 3,
-    name: "Dashboard",
-    description: "Un dashboard pour visualiser les données",
+    name: "Project Three",
+    description: "This is the third project",
+    duration: "1 month",
+    language: "Python",
+    status: "Not Started",
   },
 ];

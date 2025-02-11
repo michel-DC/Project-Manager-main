@@ -1,12 +1,14 @@
 import React from "react";
 
-const About: React.FC = () => {
+const Resources: React.FC = () => {
   return (
     <div>
-      <h2 className="text-2xl font-semibold">À propos</h2>
-      <p className="text-gray-400">En savoir plus sur cette application.</p>
+      <h2 className="text-2xl font-semibold">Ressources</h2>
+      <p className="text-gray-400">
+        Accédez à des ressources utiles pour votre projet.
+      </p>
     </div>
   );
 };
 
-export default About;
+export default Resources;

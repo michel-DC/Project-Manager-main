@@ -1,8 +1,8 @@
-import react from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-const MainLayout: react.FC<{ children: react.ReactNode }> = ({ children }) => {
+const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="flex min-h-screen bg-black text-white">
       <Sidebar />

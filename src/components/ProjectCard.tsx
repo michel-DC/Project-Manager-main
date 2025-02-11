@@ -1,24 +1,20 @@
 import React from "react";
-import { Project } from "../context/ProjectContext";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
-  project: Project;
+  id: number;
+  name: string;
+  description: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ id, name, description }) => {
   return (
-    <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-md">
-      <h2 className="text-xl font-bold text-gray-900">{project.name}</h2>
-      <p className="text-gray-700">{project.description}</p>
-      <p className="text-gray-600">
-        <strong>Durée :</strong> {project.duration}
-      </p>
-      <p className="text-gray-600">
-        <strong>Langages :</strong> {project.language}
-      </p>
-      <p className="text-gray-600">
-        <strong>Statut :</strong> {project.status}
-      </p>
+    <div className="p-4 border border-gray-700 rounded-lg">
+      <h3 className="text-xl font-bold">{name}</h3>
+      <p className="text-gray-400 mt-2">{description}</p>
+      <Link to={`/projects/${id}`} className="text-blue-400 mt-2 inline-block">
+        Voir détails
+      </Link>
     </div>
   );
 };
