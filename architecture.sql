@@ -60,9 +60,11 @@
 │   │   
 │   ├── 📂 router               
 │   │   ├── AppRouter.tsx  
-│   │  
-│   ├── main.tsx               
-│   ├── App.tsx                 
+│   │              
+│   ├── App.tsx  
+│   ├── index.css
+│   ├── main.tsx    
+│   ├── vite-env.d.ts             
 │  
 ├── 📄 .gitignore     
 ├── 📄 eslint.config.js 
