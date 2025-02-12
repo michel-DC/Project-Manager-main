@@ -63,7 +63,7 @@ const Home: React.FC = () => {
       <div className="flex items-center justify-center mt-10">
         <Link
           to="/projects"
-          className="px-6 py-3 text-black hover:bg-gray-300 cursor-pointer bg-white rounded-lg border border-black transition duration-300"
+          className="px-6 py-3 text-black hover:bg-gradient-to-r from-[#fafcfc] to-[#FFD700] cursor-pointer bg-white rounded-lg border border-black transition duration-300"
         >
           Créer votre premier projet 🚀
         </Link>

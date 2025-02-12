@@ -16,14 +16,11 @@ import { IoIosSettings } from "react-icons/io";
 const Sidebar: React.FC = () => {
   return (
     <aside className="w-64 h-screen bg-[#101212] border-r border-gray-800 p-4 flex flex-col items-center">
-      {/* <div className="flex items-center justify-center mb-8">
-        <AiOutlineFundProjectionScreen className="text-white text-6xl" />
-      </div> */}
       <ul className="space-y-8 mt-auto mb-auto">
         <li>
           <Link
             to="/"
-            className="text-white hover:text-gray-400 flex items-center space-x-6 text-xl"
+            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
           >
             <FaHome className="text-3xl" />
             <span>Accueil</span>
@@ -32,7 +29,7 @@ const Sidebar: React.FC = () => {
         <li>
           <Link
             to="/projects"
-            className="text-white hover:text-gray-400 flex items-center space-x-6 text-xl"
+            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
           >
             <AiOutlineFundProjectionScreen className="text-3xl" />
             <span>Projets</span>
@@ -41,7 +38,7 @@ const Sidebar: React.FC = () => {
         <li>
           <Link
             to="/tasks"
-            className="text-white hover:text-gray-400 flex items-center space-x-6 text-xl"
+            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
           >
             <BsListTask className="text-3xl" />
             <span>Tâches</span>
@@ -50,7 +47,7 @@ const Sidebar: React.FC = () => {
         <li>
           <Link
             to="/kanban"
-            className="text-white hover:text-gray-400 flex items-center space-x-6 text-xl"
+            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
           >
             <PiKanbanFill className="text-3xl" />
             <span>Kanban</span>
@@ -59,7 +56,7 @@ const Sidebar: React.FC = () => {
         <li>
           <Link
             to="/calendar"
-            className="text-white hover:text-gray-400 flex items-center space-x-6 text-xl"
+            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
           >
             <SlCalender className="text-3xl" />
             <span>Calendrier</span>
@@ -68,7 +65,7 @@ const Sidebar: React.FC = () => {
         <li>
           <Link
             to="/settings"
-            className="text-white hover:text-gray-400 flex items-center space-x-6 text-xl"
+            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
           >
             <IoIosSettings className="text-3xl" />
             <span>Paramètre</span>
