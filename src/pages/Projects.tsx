@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
   return (
     <div>
       <h2 className="text-4xl font-semibold text-center mb-8">{title}</h2>
-      <div className="flex justify-center items-center mt-4 p-2 bg-black rounded-lg border border-white w-2xl h-24 mx-auto mb-12">
+      <div className="flex justify-center items-center mt-4 p-2 bg-[#101212] rounded-lg border border-white w-2xl h-24 mx-auto mb-12">
         <button
           onClick={() => (window.location.href = "/new-project")}
           className="flex px-4 py-2 text-black hover:bg-gray-300 cursor-pointer bg-white rounded-lg border border-black"
