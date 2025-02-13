@@ -13,10 +13,16 @@ const NewProject: React.FC = () => {
     new Date().toISOString().split("T")[0]
   );
   const [endDate, setEndDate] = useState("");
+  const [projectURL, setProjectURL] = useState("");
+  const [teamMembers, setTeamMembers] = useState("");
+  const [budget, setBudget] = useState("");
+  const [clientName, setClientName] = useState("");
+  const [projectType, setProjectType] = useState("");
+  const [tools, setTools] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logique pour ajouter le projet
+    // Logic to add the project
     console.log("Nom du projet:", projectName);
     console.log("Description:", description);
     console.log("Durée estimée:", estimatedDuration);
@@ -27,7 +33,13 @@ const NewProject: React.FC = () => {
     console.log("Lien GitHub:", githubLink);
     console.log("Date de début:", startDate);
     console.log("Date de fin:", endDate);
-    // Réinitialiser le formulaire
+    console.log("URL du projet:", projectURL);
+    console.log("Membres de l'équipe:", teamMembers);
+    console.log("Budget:", budget);
+    console.log("Nom du client:", clientName);
+    console.log("Type de projet:", projectType);
+    console.log("Outils et bibliothèques:", tools);
+    // Reset the form
     setProjectName("");
     setDescription("");
     setEstimatedDuration("");
@@ -38,16 +50,14 @@ const NewProject: React.FC = () => {
     setGithubLink("");
     setStartDate(new Date().toISOString().split("T")[0]);
     setEndDate("");
-    // Afficher un message de confirmation
+    setProjectURL("");
+    setTeamMembers("");
+    setBudget("");
+    setClientName("");
+    setProjectType("");
+    setTools([]);
+    // Show confirmation message
     alert("Projet ajouté avec succès !");
-  };
-
-  const handleTechnologyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedOptions = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
-    );
-    setTechnologies(selectedOptions);
   };
 
   return (
@@ -59,6 +69,7 @@ const NewProject: React.FC = () => {
         Ajoutez un nouveau projet à votre liste.
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Project Name */}
         <div>
           <label className="block text-gray-700">Nom du Projet</label>
           <input
@@ -70,6 +81,7 @@ const NewProject: React.FC = () => {
             required
           />
         </div>
+        {/* Description */}
         <div>
           <label className="block text-gray-700">Description</label>
           <textarea
@@ -80,6 +92,7 @@ const NewProject: React.FC = () => {
             required
           />
         </div>
+        {/* Estimated Duration */}
         <div>
           <label className="block text-gray-700">Durée Estimée</label>
           <select
@@ -96,23 +109,59 @@ const NewProject: React.FC = () => {
             <option value="3 mois">3 mois</option>
           </select>
         </div>
+        {/* Technologies Used */}
         <div>
           <label className="block text-gray-700">Technologies Utilisées</label>
-          <select
-            multiple
-            value={technologies}
-            onChange={handleTechnologyChange}
-            className="mt-1 p-2 border border-gray-300 rounded w-full"
-            required
-          >
-            <option value="React TSX">React TSX</option>
-            <option value="React JSX">React JSX</option>
-            <option value="Vue">Vue</option>
-            <option value="Angular">Angular</option>
-            <option value="Svelte">Svelte</option>
-            <option value="HTML & CSS">HTML & CSS</option>
-          </select>
+          <div className="flex flex-wrap justify-between mt-1">
+            {[
+              {
+                name: "React TSX",
+                src: "src/assets/icon-languages/react-icon.png",
+              },
+              { name: "Vue", src: "src/assets/icon-languages/vue-icon.png" },
+              {
+                name: "Angular",
+                src: "src/assets/icon-languages/angular-icon.webp",
+              },
+              {
+                name: "Svelte",
+                src: "src/assets/icon-languages/svelte-icon.png",
+              },
+              { name: "Next", src: "src/assets/icon-languages/next-icon.png" },
+              {
+                name: "JavaScript",
+                src: "src/assets/icon-languages/js-icon.webp",
+              },
+              {
+                name: "TypeScript",
+                src: "src/assets/icon-languages/ts-icon.png",
+              },
+              {
+                name: "HTML & CSS",
+                src: "src/assets/icon-languages/html-css-icon.webp",
+              },
+            ].map((tech) => (
+              <img
+                key={tech.name}
+                src={tech.src}
+                alt={tech.name}
+                className={`w-24 h-24 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-130 focus:scale-105 focus:border-4 focus:border-white focus:rounded-lg ${
+                  technologies.includes(tech.name)
+                    ? "border-4 border-white rounded-lg"
+                    : ""
+                }`}
+                onClick={() => {
+                  setTechnologies((prev) =>
+                    prev.includes(tech.name)
+                      ? prev.filter((t) => t !== tech.name)
+                      : [...prev, tech.name]
+                  );
+                }}
+              />
+            ))}
+          </div>
         </div>
+        {/* Status */}
         <div>
           <label className="block text-gray-700">Statut</label>
           <select
@@ -126,6 +175,7 @@ const NewProject: React.FC = () => {
             <option value="Terminé">Terminé</option>
           </select>
         </div>
+        {/* Priority */}
         <div>
           <label className="block text-gray-700">Priorité</label>
           <select
@@ -139,16 +189,52 @@ const NewProject: React.FC = () => {
             <option value="Basse">Basse</option>
           </select>
         </div>
+        {/* Key Objectives */}
         <div>
           <label className="block text-gray-700">Objectifs Clés</label>
-          <textarea
+          <select
             value={keyObjectives}
             onChange={(e) => setKeyObjectives(e.target.value)}
-            className="mt-1 p-2 border border-gray-300 rounded w-full"
-            placeholder="Définissez les objectifs clés"
+            className="mt-1 p-2 border border-gray-300 rounded w-full bg-[#101212]"
             required
-          />
+          >
+            <option value="Améliorer les compétences en programmation">
+              Améliorer les compétences en programmation
+            </option>
+            <option value="Développer un portfolio">
+              Développer un portfolio
+            </option>
+            <option value="Apprendre une nouvelle technologie">
+              Apprendre une nouvelle technologie
+            </option>
+            <option value="Collaborer avec d'autres développeurs">
+              Collaborer avec d'autres développeurs
+            </option>
+            <option value="Créer un produit commercialisable">
+              Créer un produit commercialisable
+            </option>
+            <option value="Contribuer à un projet open source">
+              Contribuer à un projet open source
+            </option>
+            <option value="Automatiser des tâches répétitives">
+              Automatiser des tâches répétitives
+            </option>
+            <option value="Explorer de nouvelles idées">
+              Explorer de nouvelles idées
+            </option>
+            <option value="Autre">Autre</option>
+          </select>
+          {keyObjectives === "Autre" && (
+            <textarea
+              value={keyObjectives === "Autre" ? "" : keyObjectives}
+              onChange={(e) => setKeyObjectives(e.target.value)}
+              className="mt-1 p-2 border border-gray-300 rounded w-full"
+              placeholder="Définissez les objectifs clés"
+              required
+            />
+          )}
         </div>
+        {/* GitHub Link */}
         <div>
           <label className="block text-gray-700">Lien GitHub (optionnel)</label>
           <input
@@ -159,27 +245,121 @@ const NewProject: React.FC = () => {
             placeholder="Entrez le lien GitHub"
           />
         </div>
+        {/* Project URL */}
         <div>
-          <label className="block text-gray-700">Date de Début</label>
+          <label className="block text-gray-700">
+            URL du Projet (optionel)
+          </label>
           <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
+            type="url"
+            value={projectURL}
+            onChange={(e) => setProjectURL(e.target.value)}
             className="mt-1 p-2 border border-gray-300 rounded w-full"
-            required
+            placeholder="Entrez l'URL du projet"
           />
         </div>
+        {/* Team Members */}
         <div>
-          <label className="block text-gray-700">Date de Fin</label>
+          <label className="block text-gray-700">Membres de l'équipe</label>
           <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
+            type="text"
+            value={teamMembers}
+            onChange={(e) => setTeamMembers(e.target.value)}
             className="mt-1 p-2 border border-gray-300 rounded w-full"
-            min={startDate}
-            required
+            placeholder="Entrez les membres de l'équipe"
           />
         </div>
+        {/* Budget */}
+        <div>
+          <label className="block text-gray-700">Budget (en €)</label>
+          <input
+            type="number"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
+            className="mt-1 p-2 border border-gray-300 rounded w-full"
+            placeholder="Entrez le budget"
+          />
+        </div>
+        {/* Client Name */}
+        <div>
+          <label className="block text-gray-700">Nom du Client</label>
+          <input
+            type="text"
+            value={clientName}
+            onChange={(e) => setClientName(e.target.value)}
+            className="mt-1 p-2 border border-gray-300 rounded w-full"
+            placeholder="Entrez le nom du client"
+          />
+        </div>
+        {/* Project Type */}
+        <div>
+          <label className="block text-gray-700">Type de Projet</label>
+          <input
+            type="text"
+            value={projectType}
+            onChange={(e) => setProjectType(e.target.value)}
+            className="mt-1 p-2 border border-gray-300 rounded w-full"
+            placeholder="Entrez le type de projet"
+          />
+        </div>
+        {/* Tools and Libraries */}
+        <div>
+          <label className="block text-gray-700">Outils et Bibliothèques</label>
+          <div className="flex flex-wrap justify-between mt-1">
+            {[
+              {
+                name: "Webpack",
+                src: "src/assets/icon-library/webpack-icon.png",
+              },
+              { name: "Babel", src: "src/assets/icon-library/babel-icon.png" },
+              {
+                name: "ESLint",
+                src: "src/assets/icon-library/eslint-icon.png",
+              },
+              {
+                name: "Prettier",
+                src: "src/assets/icon-library/prettier-icon.png",
+              },
+              { name: "Jest", src: "src/assets/icon-library/jest-icon.png" },
+              {
+                name: "Cypress",
+                src: "src/assets/icon-library/cypress-icon.png",
+              },
+              {
+                name: "Storybook",
+                src: "src/assets/icon-library/storybook-icon.png",
+              },
+              {
+                name: "Tailwind CSS",
+                src: "src/assets/icon/tailwind-icon.png",
+              },
+              { name: "Bootstrap", src: "src/assets/icon/bootstrap-icon.png" },
+              {
+                name: "Material-UI",
+                src: "src/assets/icon/material-ui-icon.png",
+              },
+            ].map((tool) => (
+              <img
+                key={tool.name}
+                src={tool.src}
+                alt={tool.name}
+                className={`w-24 h-24 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-130 focus:scale-105 focus:border-4 focus:border-white focus:rounded-lg ${
+                  tools.includes(tool.name)
+                    ? "border-4 border-white rounded-lg"
+                    : ""
+                }`}
+                onClick={() => {
+                  setTools((prev) =>
+                    prev.includes(tool.name)
+                      ? prev.filter((t) => t !== tool.name)
+                      : [...prev, tool.name]
+                  );
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        {/* Buttons */}
         <div className="flex justify-between">
           <button type="submit" className="btn-primary">
             Ajouter Projet
