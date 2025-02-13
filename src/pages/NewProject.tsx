@@ -71,7 +71,7 @@ const NewProject: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Project Name */}
         <div>
-          <label className="block text-gray-700">Nom du Projet</label>
+          <label className="block text-gray-700">Nom du Projet 📝</label>
           <input
             type="text"
             value={projectName}
@@ -83,7 +83,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Description */}
         <div>
-          <label className="block text-gray-700">Description</label>
+          <label className="block text-gray-700">Description 📖</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -94,7 +94,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Estimated Duration */}
         <div>
-          <label className="block text-gray-700">Durée Estimée</label>
+          <label className="block text-gray-700">Durée Estimée ⏳</label>
           <select
             value={estimatedDuration}
             onChange={(e) => setEstimatedDuration(e.target.value)}
@@ -111,7 +111,9 @@ const NewProject: React.FC = () => {
         </div>
         {/* Technologies Used */}
         <div>
-          <label className="block text-gray-700">Technologies Utilisées</label>
+          <label className="block text-gray-700">
+            Technologies Utilisées 🛠️
+          </label>
           <div className="flex flex-wrap justify-between mt-1">
             {[
               {
@@ -145,7 +147,7 @@ const NewProject: React.FC = () => {
                 key={tech.name}
                 src={tech.src}
                 alt={tech.name}
-                className={`w-24 h-24 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-130 focus:scale-105 focus:border-4 focus:border-white focus:rounded-lg ${
+                className={`w-24 h-24 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-120 focus:scale-105 focus:border-4 focus:border-white focus:rounded-lg ${
                   technologies.includes(tech.name)
                     ? "border-4 border-white rounded-lg"
                     : ""
@@ -161,9 +163,71 @@ const NewProject: React.FC = () => {
             ))}
           </div>
         </div>
+        {/* Tools and Libraries */}
+        <div>
+          <label className="block text-gray-700">
+            Outils et Bibliothèques 🛠️
+          </label>
+          <div className="flex flex-wrap justify-between mt-1">
+            {[
+              {
+                name: "Webpack",
+                src: "src/assets/icon-library/webpack-icon.png",
+              },
+              { name: "Babel", src: "src/assets/icon-library/babel-icon.png" },
+              {
+                name: "ESLint",
+                src: "src/assets/icon-library/eslint-icon.webp",
+              },
+              {
+                name: "Prettier",
+                src: "src/assets/icon-library/prettier-icon.jpg",
+              },
+              { name: "Jest", src: "src/assets/icon-library/jest-icon.png" },
+              {
+                name: "Cypress",
+                src: "src/assets/icon-library/cypress-icon.png",
+              },
+              {
+                name: "Storybook",
+                src: "src/assets/icon-library/storybook-icon.png",
+              },
+              {
+                name: "Tailwind CSS",
+                src: "src/assets/icon-library/tailwind-icon.png",
+              },
+              {
+                name: "Bootstrap",
+                src: "src/assets/icon-library/bootstrap-icon.webp",
+              },
+              {
+                name: "Material-UI",
+                src: "src/assets/icon-library/mu-icon.png",
+              },
+            ].map((tool) => (
+              <img
+                key={tool.name}
+                src={tool.src}
+                alt={tool.name}
+                className={`w-24 h-24 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-120 focus:scale-105 focus:border-4 focus:border-white focus:rounded-lg ${
+                  tools.includes(tool.name)
+                    ? "border-4 border-white rounded-lg"
+                    : ""
+                }`}
+                onClick={() => {
+                  setTools((prev) =>
+                    prev.includes(tool.name)
+                      ? prev.filter((t) => t !== tool.name)
+                      : [...prev, tool.name]
+                  );
+                }}
+              />
+            ))}
+          </div>
+        </div>
         {/* Status */}
         <div>
-          <label className="block text-gray-700">Statut</label>
+          <label className="block text-gray-700">Statut 🚦</label>
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
@@ -177,7 +241,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Priority */}
         <div>
-          <label className="block text-gray-700">Priorité</label>
+          <label className="block text-gray-700">Priorité⚡</label>
           <select
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
@@ -191,7 +255,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Key Objectives */}
         <div>
-          <label className="block text-gray-700">Objectifs Clés</label>
+          <label className="block text-gray-700">Objectifs Clés 🎯</label>
           <select
             value={keyObjectives}
             onChange={(e) => setKeyObjectives(e.target.value)}
@@ -260,7 +324,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Team Members */}
         <div>
-          <label className="block text-gray-700">Membres de l'équipe</label>
+          <label className="block text-gray-700">Membres de l'équipe 🙋‍♂️</label>
           <input
             type="text"
             value={teamMembers}
@@ -271,7 +335,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Budget */}
         <div>
-          <label className="block text-gray-700">Budget (en €)</label>
+          <label className="block text-gray-700">Budget (en €) 💶</label>
           <input
             type="number"
             value={budget}
@@ -282,7 +346,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Client Name */}
         <div>
-          <label className="block text-gray-700">Nom du Client</label>
+          <label className="block text-gray-700">Nom du Client 👨‍💼</label>
           <input
             type="text"
             value={clientName}
@@ -293,7 +357,7 @@ const NewProject: React.FC = () => {
         </div>
         {/* Project Type */}
         <div>
-          <label className="block text-gray-700">Type de Projet</label>
+          <label className="block text-gray-700">Type de Projet ❓</label>
           <input
             type="text"
             value={projectType}
@@ -301,63 +365,6 @@ const NewProject: React.FC = () => {
             className="mt-1 p-2 border border-gray-300 rounded w-full"
             placeholder="Entrez le type de projet"
           />
-        </div>
-        {/* Tools and Libraries */}
-        <div>
-          <label className="block text-gray-700">Outils et Bibliothèques</label>
-          <div className="flex flex-wrap justify-between mt-1">
-            {[
-              {
-                name: "Webpack",
-                src: "src/assets/icon-library/webpack-icon.png",
-              },
-              { name: "Babel", src: "src/assets/icon-library/babel-icon.png" },
-              {
-                name: "ESLint",
-                src: "src/assets/icon-library/eslint-icon.png",
-              },
-              {
-                name: "Prettier",
-                src: "src/assets/icon-library/prettier-icon.png",
-              },
-              { name: "Jest", src: "src/assets/icon-library/jest-icon.png" },
-              {
-                name: "Cypress",
-                src: "src/assets/icon-library/cypress-icon.png",
-              },
-              {
-                name: "Storybook",
-                src: "src/assets/icon-library/storybook-icon.png",
-              },
-              {
-                name: "Tailwind CSS",
-                src: "src/assets/icon/tailwind-icon.png",
-              },
-              { name: "Bootstrap", src: "src/assets/icon/bootstrap-icon.png" },
-              {
-                name: "Material-UI",
-                src: "src/assets/icon/material-ui-icon.png",
-              },
-            ].map((tool) => (
-              <img
-                key={tool.name}
-                src={tool.src}
-                alt={tool.name}
-                className={`w-24 h-24 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-130 focus:scale-105 focus:border-4 focus:border-white focus:rounded-lg ${
-                  tools.includes(tool.name)
-                    ? "border-4 border-white rounded-lg"
-                    : ""
-                }`}
-                onClick={() => {
-                  setTools((prev) =>
-                    prev.includes(tool.name)
-                      ? prev.filter((t) => t !== tool.name)
-                      : [...prev, tool.name]
-                  );
-                }}
-              />
-            ))}
-          </div>
         </div>
         {/* Buttons */}
         <div className="flex justify-between">
