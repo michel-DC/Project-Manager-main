@@ -8,7 +8,9 @@ const title: string = "Mes Projets";
 const Projects: React.FC = () => {
   return (
     <div>
-      <h2 className="text-4xl font-semibold text-center mb-8">{title}</h2>
+      <h2 className="text-4xl font-semibold text-center mb-8 bg-gradient-to-r from-[#fafcfc] to-[#FFD700] bg-clip-text text-transparent">
+        {title}
+      </h2>
       <div className="flex justify-center items-center mt-4 p-2 bg-[#101212] rounded-lg border border-white w-2xl h-24 mx-auto mb-12">
         <Link
           to="/new-project"
