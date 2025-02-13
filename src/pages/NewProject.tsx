@@ -387,6 +387,11 @@ const NewProject: React.FC = () => {
             <button
               type="submit"
               className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition duration-200"
+              onClick={(e) => {
+                handleSubmit(e);
+                // Redirect to Project page after submission
+                window.location.href = "/projects";
+              }}
             >
               Ajouter Projet
             </button>

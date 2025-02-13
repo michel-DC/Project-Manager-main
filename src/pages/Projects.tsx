@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 import { sampleProjects } from "../data/sampleProjects";
@@ -6,6 +6,8 @@ import { FaPlus } from "react-icons/fa";
 
 const title: string = "Mes Projets";
 const Projects: React.FC = () => {
+  const [projects, setProjects] = useState(sampleProjects);
+
   return (
     <div>
       <h2 className="text-4xl font-semibold text-center mb-8 bg-gradient-to-r from-[#fafcfc] to-[#FFD700] bg-clip-text text-transparent">
@@ -20,8 +22,8 @@ const Projects: React.FC = () => {
           Ajouter un nouveau projet
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        {sampleProjects.map((project) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
