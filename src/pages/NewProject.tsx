@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useProjectContext } from "../context/ProjectContext";
 
 const NewProject: React.FC = () => {
+  const { addProject } = useProjectContext();
+  const navigate = useNavigate(); // Pour rediriger après l'ajout
   const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
   const [estimatedDuration, setEstimatedDuration] = useState("");
@@ -24,42 +26,31 @@ const NewProject: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logic to add the project
-    console.log("Nom du projet:", projectName);
-    console.log("Description:", description);
-    console.log("Durée estimée:", estimatedDuration);
-    console.log("Technologies:", technologies);
-    console.log("Statut:", status);
-    console.log("Priorité:", priority);
-    console.log("Objectifs clés:", keyObjectives);
-    console.log("Lien GitHub:", githubLink);
-    console.log("Date de début:", startDate);
-    console.log("Date de fin:", endDate);
-    console.log("URL du projet:", projectURL);
-    console.log("Membres de l'équipe:", teamMembers);
-    console.log("Budget:", budget);
-    console.log("Nom du client:", clientName);
-    console.log("Type de projet:", projectType);
-    console.log("Outils et bibliothèques:", tools);
-    // Reset the form
-    setProjectName("");
-    setDescription("");
-    setEstimatedDuration("");
-    setTechnologies([]);
-    setStatus("Planifié");
-    setPriority("Moyenne");
-    setKeyObjectives("");
-    setGithubLink("");
-    setStartDate(new Date().toISOString().split("T")[0]);
-    setEndDate("");
-    setProjectURL("");
-    setTeamMembers("");
-    setBudget("");
-    setClientName("");
-    setProjectType("");
-    setTools([]);
-    // Show confirmation message
+
+    const newProject = {
+      id: Date.now(), // ID unique basé sur le timestamp
+      name: projectName,
+      description,
+      estimatedDuration,
+      technologies,
+      status,
+      priority,
+      keyObjectives,
+      githubLink,
+      startDate,
+      endDate,
+      projectURL,
+      teamMembers,
+      budget,
+      clientName,
+      projectType,
+      tools,
+    };
+
+    addProject(newProject); // Ajoute au contexte
+
     alert("Projet ajouté avec succès !");
+    navigate("/projects"); // Redirige vers la page des projets
   };
 
   return (

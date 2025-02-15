@@ -21,15 +21,19 @@ const Projects: React.FC = () => {
           Ajouter un nouveau projet
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {projects.map((project) => (
-          
-          <ProjectCard key={project.id} {...project} />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
+          ))
+        ) : (
+          <p className="text-gray-400 text-center col-span-full">
+            Aucun projet ajouté pour le moment.
+          </p>
+        )}
       </div>
     </div>
   );
 };
 
 export default Projects;
-

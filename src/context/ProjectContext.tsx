@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface Project {
   id: number;
@@ -39,13 +39,24 @@ interface ProjectProviderProps {
   children: ReactNode;
 }
 
-export const ProjectProvider: React.FC<ProjectProviderProps> = ({
-  children,
-}) => {
-  const [projects, setProjects] = useState<Project[]>([]);
+export const ProjectProvider: React.FC<ProjectProviderProps> = ({ children }) => {
+  // Charger les projets depuis localStorage
+  const [projects, setProjects] = useState<Project[]>(() => {
+    const storedProjects = localStorage.getItem("projects");
+    return storedProjects ? JSON.parse(storedProjects) : [];
+  });
+
+  // Sauvegarder les projets dans localStorage à chaque mise à jour
+  useEffect(() => {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  }, [projects]);
 
   const addProject = (project: Project) => {
-    setProjects((prevProjects) => [...prevProjects, project]);
+    setProjects((prevProjects) => {
+      const updatedProjects = [...prevProjects, project];
+      localStorage.setItem("projects", JSON.stringify(updatedProjects)); // Sauvegarde immédiate
+      return updatedProjects;
+    });
   };
 
   return (
