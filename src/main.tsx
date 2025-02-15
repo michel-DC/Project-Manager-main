@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "/src/style/index.css";
+import { ProjectProvider } from "./context/ProjectContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -10,8 +11,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ProjectProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProjectProvider>
   </React.StrictMode>
 );

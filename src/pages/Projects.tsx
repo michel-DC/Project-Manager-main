@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
-import { sampleProjects } from "../data/sampleProjects";
 import { FaPlus } from "react-icons/fa";
+import { useProjectContext } from "../context/ProjectContext";
 
-const title: string = "Mes Projets";
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState(sampleProjects);
+  const { projects } = useProjectContext();
 
   return (
     <div>
       <h2 className="text-4xl font-semibold text-center mb-8 bg-gradient-to-r from-[#fafcfc] to-[#FFD700] bg-clip-text text-transparent">
-        {title}
+        Mes Projets
       </h2>
       <div className="flex justify-center items-center mt-4 p-2 bg-[#101212] rounded-lg border border-white w-2xl h-24 mx-auto mb-12">
         <Link
@@ -24,7 +23,8 @@ const Projects: React.FC = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          
+          <ProjectCard key={project.id} {...project} />
         ))}
       </div>
     </div>
@@ -32,3 +32,4 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
+

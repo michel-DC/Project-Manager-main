@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useProjectContext } from "../context/ProjectContext";
 
 const NewProject: React.FC = () => {
   const [projectName, setProjectName] = useState("");
@@ -62,7 +64,7 @@ const NewProject: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#101212]">
-      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg w-full max-w-4xl">
+      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg w-full max-w-6xl">
         <h2 className="text-3xl font-semibold text-center mb-6 bg-gradient-to-r from-[#fafcfc] to-[#FFD700] bg-clip-text text-transparent">
           Créer un Nouveau Projet
         </h2>
@@ -74,9 +76,33 @@ const NewProject: React.FC = () => {
               type="text"
               value={projectName}
               onChange={(e) => setProjectName(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               placeholder="Entrez le nom du projet"
               required
+            />
+          </div>
+          {/* Project Type */}
+          <div>
+            <label className="block text-gray-300">Type de Projet ❓</label>
+            <input
+              type="text"
+              value={projectType}
+              onChange={(e) => setProjectType(e.target.value)}
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
+              placeholder="Entrez le type de projet"
+            />
+          </div>
+          {/* Client Name */}
+          <div>
+            <label className="block text-gray-300">
+              Nom du Client 👨‍💼 (optionel)
+            </label>
+            <input
+              type="text"
+              value={clientName}
+              onChange={(e) => setClientName(e.target.value)}
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
+              placeholder="Entrez le nom du client"
             />
           </div>
           {/* Description */}
@@ -85,9 +111,34 @@ const NewProject: React.FC = () => {
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
-              placeholder="Entrez une description détaillée"
+              className="mt-1 p-3 border border-gray-600 rounded w-full h-40 focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
+              placeholder="Entrez une description détaillée de votre projet"
               required
+            />
+          </div>
+          {/* Estimated Start Date */}
+          <div>
+            <label className="block text-gray-300">
+              Date de Début Estimée 📅
+            </label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
+              required
+            />
+          </div>
+          {/* Estimated End Date */}
+          <div>
+            <label className="block text-gray-300">
+              Date de Fin Estimée 📅 (optionel)
+            </label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
             />
           </div>
           {/* Estimated Duration */}
@@ -96,10 +147,11 @@ const NewProject: React.FC = () => {
             <select
               value={estimatedDuration}
               onChange={(e) => setEstimatedDuration(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               required
             >
               <option value="">Sélectionnez la durée</option>
+              <option value="~ 3 jours">~3 jours</option>
               <option value="1 semaine">1 semaine</option>
               <option value="2 semaines">2 semaines</option>
               <option value="1 mois">1 mois</option>
@@ -142,6 +194,14 @@ const NewProject: React.FC = () => {
                 {
                   name: "HTML & CSS",
                   src: "src/assets/icon-languages/html-css-icon.webp",
+                },
+                {
+                  name: "Tailwind CSS",
+                  src: "src/assets/icon-library/tailwind-icon.png",
+                },
+                {
+                  name: "Bootstrap",
+                  src: "src/assets/icon-library/bootstrap-icon.webp",
                 },
               ].map((tech) => (
                 <div key={tech.name} className="flex flex-col items-center m-4">
@@ -199,20 +259,16 @@ const NewProject: React.FC = () => {
                   src: "src/assets/icon-library/storybook-icon.png",
                 },
                 {
-                  name: "Tailwind CSS",
-                  src: "src/assets/icon-library/tailwind-icon.png",
-                },
-                {
-                  name: "Bootstrap",
-                  src: "src/assets/icon-library/bootstrap-icon.webp",
-                },
-                {
                   name: "Material-UI",
                   src: "src/assets/icon-library/mu-icon.png",
                 },
                 {
                   name: "Shadcn-UI",
                   src: "src/assets/icon-library/shadcn-icon.png",
+                },
+                {
+                  name: "Git",
+                  src: "src/assets/icon-library/git-icon.png",
                 },
               ].map((tool) => (
                 <div key={tool.name} className="flex flex-col items-center m-4">
@@ -243,7 +299,7 @@ const NewProject: React.FC = () => {
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               required
             >
               <option value="Planifié">Planifié</option>
@@ -257,7 +313,7 @@ const NewProject: React.FC = () => {
             <select
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               required
             >
               <option value="Haute">Haute</option>
@@ -271,7 +327,7 @@ const NewProject: React.FC = () => {
             <select
               value={keyObjectives}
               onChange={(e) => setKeyObjectives(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               required
             >
               <option value="Améliorer les compétences en programmation">
@@ -304,7 +360,7 @@ const NewProject: React.FC = () => {
               <textarea
                 value={keyObjectives === "Autre" ? "" : keyObjectives}
                 onChange={(e) => setKeyObjectives(e.target.value)}
-                className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+                className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
                 placeholder="Définissez les objectifs clés"
                 required
               />
@@ -319,7 +375,7 @@ const NewProject: React.FC = () => {
               type="url"
               value={githubLink}
               onChange={(e) => setGithubLink(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               placeholder="Entrez le lien GitHub"
             />
           </div>
@@ -332,7 +388,7 @@ const NewProject: React.FC = () => {
               type="url"
               value={projectURL}
               onChange={(e) => setProjectURL(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               placeholder="Entrez l'URL du projet"
             />
           </div>
@@ -345,7 +401,7 @@ const NewProject: React.FC = () => {
               type="text"
               value={teamMembers}
               onChange={(e) => setTeamMembers(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               placeholder="Entrez les membres de l'équipe"
             />
           </div>
@@ -356,30 +412,8 @@ const NewProject: React.FC = () => {
               type="number"
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
+              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-white bg-[#2a2a2a] text-white"
               placeholder="Entrez le budget"
-            />
-          </div>
-          {/* Client Name */}
-          <div>
-            <label className="block text-gray-300">Nom du Client 👨‍💼</label>
-            <input
-              type="text"
-              value={clientName}
-              onChange={(e) => setClientName(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
-              placeholder="Entrez le nom du client"
-            />
-          </div>
-          {/* Project Type */}
-          <div>
-            <label className="block text-gray-300">Type de Projet ❓</label>
-            <input
-              type="text"
-              value={projectType}
-              onChange={(e) => setProjectType(e.target.value)}
-              className="mt-1 p-3 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#2a2a2a] text-white"
-              placeholder="Entrez le type de projet"
             />
           </div>
           {/* Buttons */}
@@ -389,7 +423,6 @@ const NewProject: React.FC = () => {
               className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition duration-200"
               onClick={(e) => {
                 handleSubmit(e);
-                // Redirect to Project page after submission
                 window.location.href = "/projects";
               }}
             >

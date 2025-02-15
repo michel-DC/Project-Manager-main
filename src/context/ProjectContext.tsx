@@ -1,12 +1,23 @@
-import React, { createContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
-export interface Project {
-  id: string;
+interface Project {
+  id: number;
   name: string;
   description: string;
-  duration: string;
-  language: string;
+  estimatedDuration: string;
+  technologies: string[];
   status: string;
+  priority: string;
+  keyObjectives: string;
+  githubLink?: string;
+  startDate: string;
+  endDate?: string;
+  projectURL?: string;
+  teamMembers?: string;
+  budget?: string;
+  clientName?: string;
+  projectType?: string;
+  tools: string[];
 }
 
 interface ProjectContextType {
@@ -14,15 +25,27 @@ interface ProjectContextType {
   addProject: (project: Project) => void;
 }
 
-export const ProjectContext = createContext<ProjectContextType | null>(null);
+const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 
-export const ProjectProvider: React.FC<{ children: ReactNode }> = ({
+export const useProjectContext = () => {
+  const context = useContext(ProjectContext);
+  if (!context) {
+    throw new Error("useProjectContext must be used within a ProjectProvider");
+  }
+  return context;
+};
+
+interface ProjectProviderProps {
+  children: ReactNode;
+}
+
+export const ProjectProvider: React.FC<ProjectProviderProps> = ({
   children,
 }) => {
   const [projects, setProjects] = useState<Project[]>([]);
 
   const addProject = (project: Project) => {
-    setProjects([...projects, project]);
+    setProjects((prevProjects) => [...prevProjects, project]);
   };
 
   return (
