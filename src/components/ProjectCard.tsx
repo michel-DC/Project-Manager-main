@@ -153,13 +153,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="flex justify-between mt-4">
         <button
           onClick={() => deleteProject(id)}
-          className="text-red-400 hover:underline"
+          className="text-red-400 hover:text-red-200 cursor-pointer"
         >
           Supprimer
         </button>
         <Link
           to={`/projects/edit/${id}`}
-          className="text-green-400 hover:underline"
+          className="text-green-400 hover:text-green-200 cursor-pointer"
         >
           Modifier
         </Link>
