@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ComponentName = () => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <div className="bg-gray-50">
       <section className="relative py-12 sm:py-16 lg:pb-40">

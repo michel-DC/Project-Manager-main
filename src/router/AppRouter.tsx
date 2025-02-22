@@ -8,10 +8,7 @@ import NewProject from "../pages/NewProject";
 import Tasks from "../pages/Tasks";
 import Kanban from "../pages/Kanban";
 import Calendar from "../pages/Calendar";
-import Statistics from "../pages/Statistics";
 import Settings from "../pages/Settings";
-import Resources from "../pages/Resources";
-import About from "../pages/About";
 import Help from "../pages/Help";
 import NotFound from "../pages/NotFound";
 
@@ -25,10 +22,7 @@ const AppRouter: React.FC = () => {
       <Route path="/tasks" element={<Tasks />} />
       <Route path="/kanban" element={<Kanban />} />
       <Route path="/calendar" element={<Calendar />} />
-      <Route path="/statistics" element={<Statistics />} />
       <Route path="/settings" element={<Settings />} />
-      <Route path="/resources" element={<Resources />} />
-      <Route path="/about" element={<About />} />
       <Route path="/help" element={<Help />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

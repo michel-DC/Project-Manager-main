@@ -109,6 +109,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </div>
 
+        <div className="border-t border-gray-100 pt-4 mb-4">
+          <span className="text-sm text-gray-500">Outils</span>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {tools.map((tools) => (
+              <div
+                key={tools}
+                className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
+              >
+                <img src={techImages[tools]} alt={tools} className="w-4 h-4" />
+                <span className="text-xs text-gray-600">{tools}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="space-y-3">
           {githubLink && (
             <div className="text-sm">

@@ -113,28 +113,48 @@ const Calendar: React.FC = () => {
                               {dayNumber}
                             </div>
                             <div className="mt-0.5">
-                              {projects
-                                ?.filter((project) => {
-                                  const projectStart = new Date(
-                                    project.startDate
-                                  );
+                              {projects?.map((project) => {
+                                const projectStart = new Date(
+                                  project.startDate
+                                );
+                                const projectEnd = project.endDate
+                                  ? new Date(project.endDate)
+                                  : null;
+
+                                const isStartDate =
+                                  projectStart.getDate() === dayNumber &&
+                                  projectStart.getMonth() ===
+                                    currentDate.getMonth() &&
+                                  projectStart.getFullYear() ===
+                                    currentDate.getFullYear();
+
+                                const isEndDate =
+                                  projectEnd &&
+                                  projectEnd.getDate() === dayNumber &&
+                                  projectEnd.getMonth() ===
+                                    currentDate.getMonth() &&
+                                  projectEnd.getFullYear() ===
+                                    currentDate.getFullYear();
+
+                                if (isStartDate || isEndDate) {
                                   return (
-                                    projectStart.getDate() === dayNumber &&
-                                    projectStart.getMonth() ===
-                                      currentDate.getMonth() &&
-                                    projectStart.getFullYear() ===
-                                      currentDate.getFullYear()
+                                    <div
+                                      key={project.id}
+                                      className={`text-xs p-0.5 mb-0.5 rounded truncate ${
+                                        isStartDate
+                                          ? "bg-green-100 text-green-800"
+                                          : "bg-red-100 text-red-800"
+                                      }`}
+                                      title={`${project.name} - ${
+                                        isStartDate ? "Début" : "Fin"
+                                      }`}
+                                    >
+                                      {project.name}
+                                    </div>
                                   );
-                                })
-                                .map((project) => (
-                                  <div
-                                    key={project.id}
-                                    className="text-xs p-0.5 mb-0.5 rounded bg-blue-100 text-blue-800 truncate"
-                                    title={project.name}
-                                  >
-                                    {project.name}
-                                  </div>
-                                ))}
+                                }
+                                return null;
+                              })}
                             </div>
                           </>
                         )}
