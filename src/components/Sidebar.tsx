@@ -1,78 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// home icon
 import { FaHome } from "react-icons/fa";
-// project icon
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-// task icon
 import { BsListTask } from "react-icons/bs";
-// kanban icon
 import { PiKanbanFill } from "react-icons/pi";
-// calender icon
 import { SlCalender } from "react-icons/sl";
-// settings icon
 import { IoIosSettings } from "react-icons/io";
 
 const Sidebar: React.FC = () => {
   return (
-    <aside className="w-64 h-screen bg-[#101212] border-r border-gray-800 p-4 flex flex-col items-center">
-      <ul className="space-y-8 mt-auto mb-auto">
-        <li>
+    <nav className="bg-gray-200 border-b border-gray-300 p-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center space-x-8">
           <Link
             to="/"
-            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
+            className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
-            <FaHome className="text-3xl" />
+            <FaHome className="text-2xl" />
             <span>Accueil</span>
           </Link>
-        </li>
-        <li>
+
           <Link
             to="/projects"
-            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
+            className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
-            <AiOutlineFundProjectionScreen className="text-3xl" />
+            <AiOutlineFundProjectionScreen className="text-2xl" />
             <span>Projets</span>
           </Link>
-        </li>
-        <li>
+
           <Link
             to="/tasks"
-            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
+            className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
-            <BsListTask className="text-3xl" />
+            <BsListTask className="text-2xl" />
             <span>Tâches</span>
           </Link>
-        </li>
-        <li>
+
           <Link
             to="/kanban"
-            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
+            className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
-            <PiKanbanFill className="text-3xl" />
+            <PiKanbanFill className="text-2xl" />
             <span>Kanban</span>
           </Link>
-        </li>
-        <li>
+
           <Link
             to="/calendar"
-            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
+            className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
-            <SlCalender className="text-3xl" />
+            <SlCalender className="text-2xl" />
             <span>Calendrier</span>
           </Link>
-        </li>
-        <li>
+
           <Link
             to="/settings"
-            className="text-white flex items-center space-x-6 text-xl hover:text-[#FFD700]"
+            className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
-            <IoIosSettings className="text-3xl" />
+            <IoIosSettings className="text-2xl" />
             <span>Paramètre</span>
           </Link>
-        </li>
-      </ul>
-    </aside>
+        </div>
+      </div>
+    </nav>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+// import Home from "../pages/Home";
+import HeroSection from "../pages/HeroSection";
 import Projects from "../pages/Projects";
 import ProjectDetail from "../pages/ProjectDetail";
 import NewProject from "../pages/NewProject";
@@ -17,7 +18,7 @@ import NotFound from "../pages/NotFound";
 const AppRouter: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HeroSection />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:id" element={<ProjectDetail />} />
       <Route path="/new-project" element={<NewProject />} />

@@ -8,30 +8,46 @@ const Projects: React.FC = () => {
   const { projects } = useProjectContext();
 
   return (
-    <div>
-      <h2 className="text-4xl font-semibold text-center mb-8 bg-gradient-to-r from-[#fafcfc] to-[#FFD700] bg-clip-text text-transparent">
-        Mes Projets
-      </h2>
-      <div className="flex justify-center items-center mt-4 p-2 bg-[#101212] rounded-lg border border-white w-2xl h-24 mx-auto mb-12">
-        <Link
-          to="/new-project"
-          className="flex px-4 py-2 text-black hover:bg-gray-300 cursor-pointer bg-white rounded-lg border border-black"
-        >
-          <FaPlus className="mr-1" />
-          Ajouter un nouveau projet
-        </Link>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.length > 0 ? (
-          projects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))
-        ) : (
-          <p className="text-gray-400 text-center col-span-full">
-            Aucun projet ajouté pour le moment.
-          </p>
-        )}
-      </div>
+    <div className="bg-gray-200 min-h-screen">
+      <section className="relative py-12 sm:py-16">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            className="w-full h-full object-cover opacity-50"
+            src="https://cdn.rareblocks.xyz/collection/clarity/images/hero/1/background-pattern.png"
+            alt=""
+          />
+        </div>
+
+        <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black text-center mb-8">
+              Mes Projets
+            </h1>
+
+            <Link
+              to="/new-project"
+              className="inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 mb-12"
+            >
+              <FaPlus className="mr-2" />
+              Ajouter un nouveau projet
+            </Link>
+
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.length > 0 ? (
+                projects.map((project) => (
+                  <ProjectCard key={project.id} {...project} />
+                ))
+              ) : (
+                <div className="col-span-full flex justify-center">
+                  <p className="text-xl text-gray-700 text-center">
+                    Aucun projet ajouté pour le moment.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

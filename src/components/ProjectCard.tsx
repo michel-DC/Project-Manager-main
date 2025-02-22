@@ -67,102 +67,104 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const { deleteProject } = useProjectContext();
 
   return (
-    <div className="p-6 border border-gray-700 rounded-lg shadow-lg bg-[#1a1a1a] text-white">
-      <h3 className="text-2xl font-bold mb-2">{name}</h3>
-      <p className="text-gray-400 mb-4">{description}</p>
-      <div className="mb-4">
-        <span className="font-semibold">Durée estimée:</span>{" "}
-        {estimatedDuration}
-      </div>
-      <div className="mb-4">
-        <span className="font-semibold">Technologies:</span>
-        <div className="flex flex-wrap mt-2">
-          {technologies.map((tech) => (
-            <div key={tech} className="flex items-center mr-4 mb-2">
-              <img src={techImages[tech]} alt={tech} className="w-6 h-6 mr-2" />
-              <span>{tech}</span>
+    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">{name}</h3>
+        <p className="text-gray-600 text-sm mb-4">{description}</p>
+
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="text-sm">
+            <span className="text-gray-500">Durée ⏳</span>
+            <p className="font-medium text-gray-900">{estimatedDuration}</p>
+          </div>
+
+          <div className="text-sm">
+            <span className="text-gray-500">Statut 🚦</span>
+            <p className="font-medium text-gray-900">{status}</p>
+          </div>
+
+          <div className="text-sm">
+            <span className="text-gray-500">Priorité ⚡</span>
+            <p className="font-medium text-gray-900">{priority}</p>
+          </div>
+
+          <div className="text-sm">
+            <span className="text-gray-500">Date début 📅</span>
+            <p className="font-medium text-gray-900">{startDate}</p>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-100 pt-4 mb-4">
+          <span className="text-sm text-gray-500">Technologies 🛠️</span>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {technologies.map((tech) => (
+              <div
+                key={tech}
+                className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
+              >
+                <img src={techImages[tech]} alt={tech} className="w-4 h-4" />
+                <span className="text-xs text-gray-600">{tech}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          {githubLink && (
+            <div className="text-sm">
+              <span className="text-gray-500">GitHub</span>
+              <a
+                href={githubLink}
+                className="block text-blue-600 hover:underline"
+              >
+                {githubLink}
+              </a>
             </div>
-          ))}
-        </div>
-      </div>
-      <div className="mb-4">
-        <span className="font-semibold">Statut:</span> {status}
-      </div>
-      <div className="mb-4">
-        <span className="font-semibold">Priorité:</span> {priority}
-      </div>
-      <div className="mb-4">
-        <span className="font-semibold">Objectifs clés:</span> {keyObjectives}
-      </div>
-      {githubLink && (
-        <div className="mb-4">
-          <span className="font-semibold">GitHub:</span>{" "}
-          <a href={githubLink} className="text-blue-400">
-            {githubLink}
-          </a>
-        </div>
-      )}
-      <div className="mb-4">
-        <span className="font-semibold">Date de début:</span> {startDate}
-      </div>
-      {endDate && (
-        <div className="mb-4">
-          <span className="font-semibold">Date de fin:</span> {endDate}
-        </div>
-      )}
-      {projectURL && (
-        <div className="mb-4">
-          <span className="font-semibold">URL du projet:</span>{" "}
-          <a href={projectURL} className="text-blue-400">
-            {projectURL}
-          </a>
-        </div>
-      )}
-      {teamMembers && (
-        <div className="mb-4">
-          <span className="font-semibold">Membres de l'équipe:</span>{" "}
-          {teamMembers}
-        </div>
-      )}
-      {budget && (
-        <div className="mb-4">
-          <span className="font-semibold">Budget:</span> {budget} €
-        </div>
-      )}
-      {clientName && (
-        <div className="mb-4">
-          <span className="font-semibold">Nom du client:</span> {clientName}
-        </div>
-      )}
-      {projectType && (
-        <div className="mb-4">
-          <span className="font-semibold">Type de projet:</span> {projectType}
-        </div>
-      )}
-      <div className="mb-4">
-        <span className="font-semibold">Outils:</span>
-        <div className="flex flex-wrap mt-2">
-          {tools.map((tool) => (
-            <div key={tool} className="flex items-center mr-4 mb-2">
-              <img src={techImages[tool]} alt={tool} className="w-6 h-6 mr-2" />
-              <span>{tool}</span>
+          )}
+
+          {projectURL && (
+            <div className="text-sm">
+              <span className="text-gray-500">URL</span>
+              <a
+                href={projectURL}
+                className="block text-blue-600 hover:underline"
+              >
+                {projectURL}
+              </a>
             </div>
-          ))}
+          )}
+
+          {teamMembers && (
+            <div className="text-sm">
+              <span className="text-gray-500">Équipe 🙋‍♂️</span>
+              <p className="text-gray-900">{teamMembers}</p>
+            </div>
+          )}
+
+          {budget && (
+            <div className="text-sm">
+              <span className="text-gray-500">Budget 💶</span>
+              <p className="text-gray-900">{budget} €</p>
+            </div>
+          )}
         </div>
-      </div>
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={() => deleteProject(id)}
-          className="text-red-400 hover:text-red-200 cursor-pointer"
-        >
-          Supprimer
-        </button>
-        <Link
-          to={`/projects/edit/${id}`}
-          className="text-green-400 hover:text-green-200 cursor-pointer"
-        >
-          Modifier
-        </Link>
+
+        <div className="border-t border-gray-100 mt-6 pt-4">
+          <div className="flex gap-3">
+            <button
+              onClick={() => deleteProject(id)}
+              className="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition-colors"
+            >
+              Supprimer
+            </button>
+            <Link
+              to={`/projects/edit/${id}`}
+              className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors text-center"
+            >
+              Modifier
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="flex min-h-screen bg-[#101212] text-white">
-      <Sidebar />
-      <div className="flex-1 flex flex-col">
-        <Navbar />
+    <div className="flex flex-col min-h-screen bg-gray-50 text-white">
+      <header className="w-full">
+        <Sidebar />
+      </header>
+      <div className="flex-1">
         <main className="p-6">{children}</main>
       </div>
     </div>
