@@ -63,10 +63,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const { deleteProject } = useProjectContext();
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-200 h-fit">
       <div className="p-6">
         <h3 className="text-xl font-semibold text-gray-900 mb-2">{name}</h3>
-        <p className="text-gray-600 text-sm mb-4">{description}</p>
 
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div className="text-sm">
@@ -90,75 +89,87 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-4 mb-4">
-          <span className="text-sm text-gray-500">Technologies 🛠️</span>
-          <div className="flex flex-wrap gap-2 mt-2">
-            {technologies.map((tech) => (
-              <div
-                key={tech}
-                className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
-              >
-                <img src={techImages[tech]} alt={tech} className="w-4 h-4" />
-                <span className="text-xs text-gray-600">{tech}</span>
-              </div>
-            ))}
+        {technologies.length > 0 && (
+          <div className="border-t border-gray-100 pt-4 mb-4">
+            <span className="text-sm text-gray-500">Technologies 🛠️</span>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {technologies.map((tech) => (
+                <div
+                  key={tech}
+                  className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
+                >
+                  <img src={techImages[tech]} alt={tech} className="w-4 h-4" />
+                  <span className="text-xs text-gray-600">{tech}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        <div className="border-t border-gray-100 pt-4 mb-4">
-          <span className="text-sm text-gray-500">Outils</span>
-          <div className="flex flex-wrap gap-2 mt-2">
-            {tools.map((tools) => (
-              <div
-                key={tools}
-                className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
-              >
-                <img src={techImages[tools]} alt={tools} className="w-4 h-4" />
-                <span className="text-xs text-gray-600">{tools}</span>
-              </div>
-            ))}
+        {tools.length > 0 && (
+          <div className="border-t border-gray-100 pt-4 mb-4">
+            <span className="text-sm text-gray-500">Outils</span>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {tools.map((tools) => (
+                <div
+                  key={tools}
+                  className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
+                >
+                  <img
+                    src={techImages[tools]}
+                    alt={tools}
+                    className="w-4 h-4"
+                  />
+                  <span className="text-xs text-gray-600">{tools}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        <div className="space-y-3">
-          {githubLink && (
-            <div className="text-sm">
-              <span className="text-gray-500">GitHub</span>
-              <a
-                href={githubLink}
-                className="block text-blue-600 hover:underline"
-              >
-                {githubLink}
-              </a>
-            </div>
-          )}
+        {(githubLink || projectURL || teamMembers || budget) && (
+          <div className="space-y-3">
+            {githubLink && (
+              <div className="text-sm">
+                <span className="text-gray-500">GitHub</span>
+                <a
+                  href={githubLink}
+                  className="block text-blue-600 hover:underline"
+                >
+                  {githubLink}
+                </a>
+              </div>
+            )}
 
-          {projectURL && (
-            <div className="text-sm">
-              <span className="text-gray-500">URL</span>
-              <a
-                href={projectURL}
-                className="block text-blue-600 hover:underline"
-              >
-                {projectURL}
-              </a>
-            </div>
-          )}
+            {projectURL && (
+              <div className="text-sm">
+                <span className="text-gray-500">URL</span>
+                <a
+                  href={projectURL}
+                  className="block text-blue-600 hover:underline"
+                >
+                  {projectURL}
+                </a>
+              </div>
+            )}
 
-          {teamMembers && (
-            <div className="text-sm">
-              <span className="text-gray-500">Équipe 🙋‍♂️</span>
-              <p className="text-gray-900">{teamMembers}</p>
-            </div>
-          )}
+            {teamMembers && (
+              <div className="text-sm">
+                <span className="text-gray-500">Équipe 🙋‍♂️</span>
+                <p className="text-gray-900">{teamMembers}</p>
+              </div>
+            )}
 
-          {budget && (
-            <div className="text-sm">
-              <span className="text-gray-500">Budget 💶</span>
-              <p className="text-gray-900">{budget} €</p>
-            </div>
-          )}
-        </div>
+            {budget && (
+              <div className="text-sm">
+                <span className="text-gray-500">Budget 💶</span>
+                <p className="text-gray-900">{budget} €</p>
+              </div>
+            )}
+            <p className="text-gray-600 text-sm">Description du projet ⌨️:</p>
+            <p className="text-gray-600 text-sm mb-2">{description}</p>
+          </div>
+        )}
 
         <div className="border-t border-gray-100 mt-6 pt-4">
           <div className="flex gap-3">

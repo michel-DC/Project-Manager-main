@@ -164,7 +164,7 @@ const Calendar: React.FC = () => {
                 </div>
               </div>
               <div className="text-gray-700 text-center p-4 text-sm">
-                Fonctionnalité de calendrier en cours de développement
+                *Fonctionnalité de calendrier en cours de développement*
               </div>
             </div>
           </div>
