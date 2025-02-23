@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ComponentName = () => {
+const HeroSection = () => {
   return (
     <div className="bg-gray-50">
       <section className="relative py-12 sm:py-16 lg:pb-40">
@@ -115,4 +115,4 @@ const ComponentName = () => {
   );
 };
 
-export default ComponentName;
+export default HeroSection;

@@ -11,6 +11,7 @@ import Calendar from "../pages/Calendar";
 import Settings from "../pages/Settings";
 import Help from "../pages/Help";
 import NotFound from "../pages/NotFound";
+import Login from "../pages/Login";
 
 const AppRouter: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const AppRouter: React.FC = () => {
       <Route path="/settings" element={<Settings />} />
       <Route path="/help" element={<Help />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };
