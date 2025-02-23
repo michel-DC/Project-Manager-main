@@ -131,7 +131,7 @@ const ProgressBoard: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-gray-200">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-gray-100">
       <h2 className="text-3xl text-gray-700 font-bold mb-8">
         Tableau de progression
       </h2>
@@ -141,7 +141,7 @@ const ProgressBoard: React.FC = () => {
           Sélectionner un projet
         </label>
         <select
-          className="w-full p-3 border border-gray-300 rounded-md bg-white dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+          className="w-full p-3 border text-gray-800 border-gray-300 rounded-md bg-white dark:bg-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
           onChange={handleProjectChange}
           value={selectedProjectId || ""}
         >
@@ -156,15 +156,13 @@ const ProgressBoard: React.FC = () => {
 
       {selectedProject && (
         <div className="space-y-8">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <div className="bg-white dark:bg-gray-300 p-6 rounded-lg shadow-lg">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h3 className="text-2xl font-semibold mb-2">
+                <h3 className="text-2xl text-gray-800 font-semibold mb-2">
                   {selectedProject.name}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {selectedProject.description}
-                </p>
+                <p className="text-gray-800">{selectedProject.description}</p>
               </div>
               <div className="flex gap-4">
                 {selectedProject.githubLink && (
@@ -172,7 +170,7 @@ const ProgressBoard: React.FC = () => {
                     href={selectedProject.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-900"
+                    className="text-gray-800 hover:text-gray-900"
                   >
                     <FaGithub size={24} />
                   </a>
@@ -191,21 +189,21 @@ const ProgressBoard: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow flex items-center gap-3">
+              <div className="bg-gray-200 p-4 rounded-lg shadow flex items-center gap-3">
                 <FaUsers className="text-blue-500" size={20} />
                 <div>
-                  <h4 className="font-medium">Équipe</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h4 className="font-medium text-gray-800">Équipe:</h4>
+                  <p className="text-gray-700">
                     {selectedProject.teamMembers || "Non spécifié"}
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow flex items-center gap-3">
+              <div className="bg-gray-200 p-4 rounded-lg shadow flex items-center gap-3">
                 <FaMoneyBillWave className="text-green-500" size={20} />
                 <div>
-                  <h4 className="font-medium">Budget</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h4 className="font-medium text-gray-800">Budget:</h4>
+                  <p className="text-gray-800">
                     {selectedProject.budget || "Non spécifié"} €
                   </p>
                 </div>
@@ -214,7 +212,7 @@ const ProgressBoard: React.FC = () => {
 
             <div className="space-y-6">
               <div>
-                <label className="block text-lg font-medium mb-3">
+                <label className="block text-lg text-gray-800 font-medium mb-3">
                   Progression actuelle
                 </label>
                 <input
@@ -223,7 +221,7 @@ const ProgressBoard: React.FC = () => {
                   max="100"
                   value={progress}
                   onChange={handleProgressChange}
-                  className="w-full h-4 bg-gray-300 dark:bg-gray-600 rounded-full appearance-none cursor-pointer accent-green-500 hover:accent-green-600 transition-all duration-200"
+                  className="w-full h-4 bg-gray-200 rounded-full appearance-none cursor-pointer accent-green-500 hover:accent-green-600 transition-all duration-200"
                   style={{
                     background: `linear-gradient(to right, #22C55E 0%, #22C55E ${progress}%, #D1D5DB ${progress}%, #D1D5DB 100%)`,
                   }}
@@ -235,24 +233,24 @@ const ProgressBoard: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
-                  <h4 className="text-lg font-medium mb-2">Date de début</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {selectedProject.startDate}
-                  </p>
+                <div className="bg-gray-200 p-4 rounded-lg shadow">
+                  <h4 className="text-lg text-gray-800 font-medium mb-2">
+                    Date de début
+                  </h4>
+                  <p className="text-gray-800">{selectedProject.startDate}</p>
                 </div>
-                <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
-                  <h4 className="text-lg font-medium mb-2">
+                <div className="bg-gray-200 p-4 rounded-lg shadow">
+                  <h4 className="text-lg text-gray-800 font-medium mb-2">
                     Date de fin prévue
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-800">
                     {selectedProject.endDate || "Non définie"}
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
-                <h4 className="text-lg font-medium mb-4">
+              <div className="bg-gray-200 p-4 rounded-lg shadow">
+                <h4 className="text-lg text-gray-800 font-medium mb-4">
                   Technologies utilisées
                 </h4>
                 <div className="flex flex-wrap gap-4">
@@ -264,7 +262,7 @@ const ProgressBoard: React.FC = () => {
                           alt={tech}
                           className="w-12 h-12 object-contain"
                         />
-                        <span className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+                        <span className="text-sm text-gray-800 mt-2">
                           {tech}
                         </span>
                       </div>
@@ -272,13 +270,15 @@ const ProgressBoard: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
-                <h4 className="text-lg font-medium mb-4">Jalons du projet</h4>
+              <div className="bg-gray-200 p-4 rounded-lg shadow">
+                <h4 className="text-lg text-gray-800 font-medium mb-4">
+                  Jalons du projet
+                </h4>
                 <div className="space-y-3">
                   {milestones.map((milestone) => (
                     <div
                       key={milestone.id}
-                      className="flex items-center gap-3 p-2 hover:bg-gray-50 dark:hover:bg-gray-600 rounded"
+                      className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded"
                     >
                       <input
                         type="checkbox"
@@ -305,7 +305,7 @@ const ProgressBoard: React.FC = () => {
                       value={newMilestone}
                       onChange={(e) => setNewMilestone(e.target.value)}
                       placeholder="Nouveau jalon..."
-                      className="flex-1 p-2 border rounded"
+                      className="flex-1 p-2 text-gray-800 border rounded"
                     />
                     <button
                       onClick={handleAddMilestone}
@@ -324,7 +324,7 @@ const ProgressBoard: React.FC = () => {
                 )}
               </div>
 
-              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
+              <div className="bg-gray-200 text-gray-800 p-4 rounded-lg shadow">
                 <h4 className="text-lg font-medium mb-4">
                   Notes et commentaires
                 </h4>
@@ -332,7 +332,7 @@ const ProgressBoard: React.FC = () => {
                   value={notes}
                   onChange={handleNotesChange}
                   placeholder="Ajoutez vos notes ici..."
-                  className="w-full h-32 p-3 border rounded-md resize-none"
+                  className="w-full h-32 p-3 border border-gray-800 focus:ring-2 focus:ring-gray-800 rounded-md resize-none"
                 />
               </div>
 
@@ -356,7 +356,7 @@ const ProgressBoard: React.FC = () => {
 
       {!selectedProject && (
         <div className="text-center py-12">
-          <p className="text-gray-500 dark:text-gray-400 text-lg">
+          <p className="text-gray-800 text-lg">
             Veuillez sélectionner un projet pour voir et modifier sa
             progression.
           </p>
