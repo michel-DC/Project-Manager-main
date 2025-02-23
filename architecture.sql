@@ -34,6 +34,9 @@
 │   │   ├── MainLayout.tsx     
 │   │   ├── AuthLayout.tsx       
 │   │  
+│   ├── 📂 lib              
+│   │   ├── utils.tsx       
+│   │  
 │   ├── 📂 hooks               
 │   │   ├── useLocalStorage.ts  
 │   │   ├── useTheme.ts         
