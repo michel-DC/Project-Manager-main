@@ -140,9 +140,9 @@ const ProgressBoard: React.FC = () => {
         />
       </div>
       <div className="relative">
-        <h2 className="text-3xl text-gray-700 font-bold mb-8">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center mb-6">
           Tableau de progression
-        </h2>
+        </h1>
 
         <div className="mb-8">
           <label className="block text-gray-800 text-lg font-medium mb-3">
@@ -365,8 +365,8 @@ const ProgressBoard: React.FC = () => {
         {!selectedProject && (
           <div className="text-center py-12">
             <p className="text-gray-800 text-lg">
-              Veuillez sélectionner un projet pour voir et modifier sa
-              progression.
+              *Veuillez sélectionner un projet pour voir et modifier sa
+              progression.*
             </p>
           </div>
         )}

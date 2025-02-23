@@ -55,6 +55,9 @@ const TaskItem: React.FC = () => {
   return (
     <div className="min-h-screen">
       <section className="relative py-8 sm:py-12">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center mb-6">
+          Liste des tâches
+        </h1>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="bg-300 rounded-lg shadow-lg p-6">
             <div className="space-y-4">
@@ -83,7 +86,13 @@ const TaskItem: React.FC = () => {
                 <input
                   type="date"
                   value={dueDate}
-                  onChange={(e) => setDueDate(e.target.value)}
+                  onChange={(e) => {
+                    if (!e.target.value) {
+                      alert("Veuillez sélectionner une date");
+                      return;
+                    }
+                    setDueDate(e.target.value);
+                  }}
                   className="p-2 border rounded-lg bg-gray-300 text-gray-800 focus:ring-2 focus:ring-gray-800"
                 />
 
@@ -120,7 +129,7 @@ const TaskItem: React.FC = () => {
                           {task.description}
                         </span>
                         <span className="ml-4 text-sm text-red-800">
-                          Due: {new Date(task.dueDate).toLocaleDateString()}
+                          Pour le: {new Date(task.dueDate).toLocaleDateString()}
                         </span>
                       </div>
                       <button
