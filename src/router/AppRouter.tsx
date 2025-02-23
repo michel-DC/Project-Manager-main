@@ -6,7 +6,7 @@ import Projects from "../pages/Projects";
 import ProjectDetail from "../pages/ProjectDetail";
 import NewProject from "../pages/NewProject";
 import Tasks from "../pages/Tasks";
-import Kanban from "../pages/Kanban";
+import Progress from "../pages/Progress";
 import Calendar from "../pages/Calendar";
 import Settings from "../pages/Settings";
 import Help from "../pages/Help";
@@ -20,7 +20,7 @@ const AppRouter: React.FC = () => {
       <Route path="/projects/:id" element={<ProjectDetail />} />
       <Route path="/new-project" element={<NewProject />} />
       <Route path="/tasks" element={<Tasks />} />
-      <Route path="/kanban" element={<Kanban />} />
+      <Route path="/progress" element={<Progress />} />
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/help" element={<Help />} />

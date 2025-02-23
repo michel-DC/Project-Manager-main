@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { BsListTask } from "react-icons/bs";
-import { PiKanbanFill } from "react-icons/pi";
 import { SlCalender } from "react-icons/sl";
 import { IoIosSettings } from "react-icons/io";
+import { IoStatsChart } from "react-icons/io5";
 
 const Sidebar: React.FC = () => {
   return (
@@ -37,11 +37,11 @@ const Sidebar: React.FC = () => {
           </Link>
 
           <Link
-            to="/kanban"
+            to="/progress"
             className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
-            <PiKanbanFill className="text-2xl" />
-            <span>Kanban</span>
+            <IoStatsChart className="text-2xl" />
+            <span>Progress</span>
           </Link>
 
           <Link

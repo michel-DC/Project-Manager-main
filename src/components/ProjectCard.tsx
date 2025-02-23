@@ -53,15 +53,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   technologies,
   status,
   priority,
-  keyObjectives,
   githubLink,
   startDate,
-  endDate,
   projectURL,
   teamMembers,
   budget,
-  clientName,
-  projectType,
   tools,
 }) => {
   const { deleteProject } = useProjectContext();
