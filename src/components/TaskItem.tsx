@@ -86,13 +86,6 @@ const TaskItem: React.FC = () => {
                 <input
                   type="date"
                   value={dueDate}
-                  onChange={(e) => {
-                    if (!e.target.value) {
-                      alert("Veuillez sélectionner une date");
-                      return;
-                    }
-                    setDueDate(e.target.value);
-                  }}
                   className="p-2 border rounded-lg bg-gray-300 text-gray-800 focus:ring-2 focus:ring-gray-800"
                 />
 

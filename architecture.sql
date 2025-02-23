@@ -6,32 +6,27 @@
 │   └── robots.txt  
 │  
 ├── 📂 src  
-│   ├── 📂 assets                
-│   ├── 📂 components          
-│   │   ├── Button.tsx  
-│   │   ├── Card.tsx  
-│   │   ├── Modal.tsx  
-│   │   ├── Navbar.tsx  
-│   │   ├── Sidebar.tsx  
+│   ├── 📂 assets    
+│   ├── 📂 components    
+│   ├──────📂 ui      
+│   │   ├─────── Button.tsx  
+│   │   ├─────── Card.tsx  
+│   │   ├─────── Modal.tsx  
+│   │   ├── ProgressBoard.tsx  
 │   │   ├── ProjectCard.tsx  
+│   │   ├── Sidebar.tsx  
+│   │   ├── StatsChart.tsx  
 │   │   ├── TaskItem.tsx  
-│   │   ├── KanbanBoard.tsx  
-│   │   ├── CalendarView.tsx  
-│   │   └── StatsChart.tsx  
-│   │  
 │   ├── 📂 pages               
 │   │   ├── Home.tsx  
-│   │   ├── Projects.tsx  
-│   │   ├── ProjectDetail.tsx  
+│   │   ├── Projects.tsx
+│   │   ├── ProjectDetail.tsx    
+│   │   ├── Progress.tsx  
+│   │   ├── HeroSection.tsx  
 │   │   ├── NewProject.tsx  
 │   │   ├── Tasks.tsx  
-│   │   ├── Kanban.tsx  
 │   │   ├── Calendar.tsx  
-│   │   ├── Team.tsx  
-│   │   ├── Statistics.tsx  
 │   │   ├── Settings.tsx  
-│   │   ├── Resources.tsx  
-│   │   ├── About.tsx  
 │   │   ├── Help.tsx  
 │   │   └── NotFound.tsx  
 │   │  
@@ -43,26 +38,28 @@
 │   │   ├── useLocalStorage.ts  
 │   │   ├── useTheme.ts         
 │   │  
-│   ├── 📂 utils                
-│   │   ├── dateUtils.ts        
+│   ├── 📂 utils                   
 │   │   ├── projectUtils.ts    
-│   │   ├── taskUtils.ts        
-│   │   ├── pdfExport.ts       
+│   │   ├── taskUtils.ts            
 │   │  
 │   ├── 📂 context              
 │   │   ├── ProjectContext.tsx  
 │   │   ├── TaskContext.tsx  
-│   │   ├── ThemeContext.tsx  
+│   │   ├── ThemeContext.tsx 
+│   │   ├── LanguageContext.tsx   
 │   │  
 │   ├── 📂 data                  
 │   │   ├── sampleProjects.ts  
-│   │   ├── sampleTasks.ts  
+│   │   ├── sampleTasks.ts
+│   │   ├── types.ts    
 │   │   
 │   ├── 📂 router               
 │   │   ├── AppRouter.tsx  
-│   │              
+│   │    
+│   ├── 📂 style               
+│   │   ├── index.css   
+│   │
 │   ├── App.tsx  
-│   ├── index.css
 │   ├── main.tsx    
 │   ├── vite-env.d.ts             
 │  
