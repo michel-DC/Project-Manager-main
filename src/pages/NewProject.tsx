@@ -77,7 +77,7 @@ const NewProject: React.FC = () => {
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               {/* Project Name */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Nom du Projet 📝
                 </label>
                 <input
@@ -93,7 +93,7 @@ const NewProject: React.FC = () => {
               {/* Rest of the form fields - keeping same structure but updating styles */}
               {/* Project Type */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Type de Projet ❓
                 </label>
                 <input
@@ -107,7 +107,7 @@ const NewProject: React.FC = () => {
 
               {/* Client Name */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Nom du Client 👨‍💼 (optionel)
                 </label>
                 <input
@@ -120,7 +120,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Description */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Description 📖
                 </label>
                 <textarea
@@ -133,7 +133,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Estimated Start Date */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Date de Début Estimée 📅
                 </label>
                 <input
@@ -146,7 +146,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Estimated End Date */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Date de Fin Estimée 📅 (optionel)
                 </label>
                 <input
@@ -158,7 +158,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Estimated Duration */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Durée Estimée ⏳
                 </label>
                 <select
@@ -178,7 +178,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Technologies Used */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Technologies Utilisées 🛠️
                 </label>
                 <div className="flex flex-wrap mt-2">
@@ -244,14 +244,14 @@ const NewProject: React.FC = () => {
                           );
                         }}
                       />
-                      <span className="text-gray-700 mt-1">{tech.name}</span>
+                      <span className="text-black mt-1">{tech.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Tools and Libraries */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Outils et Bibliothèques 🛠️
                 </label>
                 <div className="flex flex-wrap mt-2">
@@ -317,14 +317,14 @@ const NewProject: React.FC = () => {
                           );
                         }}
                       />
-                      <span className="text-gray-700 mt-1">{tool.name}</span>
+                      <span className="text-black mt-1">{tool.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Status */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Statut 🚦
                 </label>
                 <select
@@ -340,7 +340,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Priority */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Priorité⚡
                 </label>
                 <select
@@ -356,7 +356,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Key Objectives */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Objectifs Clés 🎯
                 </label>
                 <select
@@ -403,7 +403,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* GitHub Link */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Lien GitHub (optionnel)
                 </label>
                 <input
@@ -416,7 +416,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Project URL */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   URL du Projet (optionel)
                 </label>
                 <input
@@ -429,7 +429,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Team Members */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Membres de l'équipe 🙋‍♂️
                 </label>
                 <input
@@ -442,7 +442,7 @@ const NewProject: React.FC = () => {
               </div>
               {/* Budget */}
               <div>
-                <label className="block text-gray-700 font-medium">
+                <label className="block text-black font-medium">
                   Budget (en €) 💶
                 </label>
                 <input

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useProjectContext } from "../context/ProjectContext";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaUsers,
+  FaMoneyBillWave,
+} from "react-icons/fa";
 
 const techImages: { [key: string]: string } = {
   React: "src/assets/icon-languages/react-icon.png",
@@ -31,16 +37,29 @@ const ProgressBoard: React.FC = () => {
   );
   const [progress, setProgress] = useState<number>(0);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [notes, setNotes] = useState<string>("");
+  const [milestones, setMilestones] = useState<
+    { id: number; title: string; completed: boolean }[]
+  >([]);
+  const [showAddMilestone, setShowAddMilestone] = useState(false);
+  const [newMilestone, setNewMilestone] = useState("");
 
-  // Load progress from localStorage when component mounts
   useEffect(() => {
     if (selectedProjectId) {
       const savedProgress = localStorage.getItem(
         `project-progress-${selectedProjectId}`
       );
-      if (savedProgress) {
-        setProgress(parseInt(savedProgress));
-      }
+      const savedNotes = localStorage.getItem(
+        `project-notes-${selectedProjectId}`
+      );
+      const savedMilestones = localStorage.getItem(
+        `project-milestones-${selectedProjectId}`
+      );
+
+      if (savedProgress) setProgress(parseInt(savedProgress));
+      if (savedNotes) setNotes(savedNotes);
+      if (savedMilestones) setMilestones(JSON.parse(savedMilestones));
+      else setMilestones([]);
     }
   }, [selectedProjectId]);
 
@@ -52,7 +71,8 @@ const ProgressBoard: React.FC = () => {
     const projectId = parseInt(e.target.value);
     setSelectedProjectId(projectId);
     setHasUnsavedChanges(false);
-    // Load progress for newly selected project
+    setShowAddMilestone(false);
+
     if (projectId) {
       const savedProgress = localStorage.getItem(
         `project-progress-${projectId}`
@@ -67,19 +87,52 @@ const ProgressBoard: React.FC = () => {
     setHasUnsavedChanges(true);
   };
 
+  const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setNotes(e.target.value);
+    setHasUnsavedChanges(true);
+  };
+
+  const handleAddMilestone = () => {
+    if (newMilestone.trim()) {
+      const newMilestoneObj = {
+        id: Date.now(),
+        title: newMilestone,
+        completed: false,
+      };
+      setMilestones([...milestones, newMilestoneObj]);
+      setNewMilestone("");
+      setShowAddMilestone(false);
+      setHasUnsavedChanges(true);
+    }
+  };
+
+  const toggleMilestone = (id: number) => {
+    setMilestones(
+      milestones.map((m) =>
+        m.id === id ? { ...m, completed: !m.completed } : m
+      )
+    );
+    setHasUnsavedChanges(true);
+  };
+
   const handleSave = () => {
     if (selectedProjectId) {
       localStorage.setItem(
         `project-progress-${selectedProjectId}`,
         progress.toString()
       );
+      localStorage.setItem(`project-notes-${selectedProjectId}`, notes);
+      localStorage.setItem(
+        `project-milestones-${selectedProjectId}`,
+        JSON.stringify(milestones)
+      );
       setHasUnsavedChanges(false);
     }
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h2 className="text-3xl text-gray-900 font-bold mb-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-gray-200">
+      <h2 className="text-3xl text-gray-700 font-bold mb-8">
         Tableau de progression
       </h2>
 
@@ -103,13 +156,61 @@ const ProgressBoard: React.FC = () => {
 
       {selectedProject && (
         <div className="space-y-8">
-          <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold mb-4">
-              {selectedProject.name}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {selectedProject.description}
-            </p>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <h3 className="text-2xl font-semibold mb-2">
+                  {selectedProject.name}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {selectedProject.description}
+                </p>
+              </div>
+              <div className="flex gap-4">
+                {selectedProject.githubLink && (
+                  <a
+                    href={selectedProject.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-gray-900"
+                  >
+                    <FaGithub size={24} />
+                  </a>
+                )}
+                {selectedProject.projectURL && (
+                  <a
+                    href={selectedProject.projectURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-gray-900"
+                  >
+                    <FaExternalLinkAlt size={24} />
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow flex items-center gap-3">
+                <FaUsers className="text-blue-500" size={20} />
+                <div>
+                  <h4 className="font-medium">Équipe</h4>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {selectedProject.teamMembers || "Non spécifié"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow flex items-center gap-3">
+                <FaMoneyBillWave className="text-green-500" size={20} />
+                <div>
+                  <h4 className="font-medium">Budget</h4>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {selectedProject.budget || "Non spécifié"} €
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div className="space-y-6">
               <div>
@@ -169,6 +270,70 @@ const ProgressBoard: React.FC = () => {
                       </div>
                     ))}
                 </div>
+              </div>
+
+              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
+                <h4 className="text-lg font-medium mb-4">Jalons du projet</h4>
+                <div className="space-y-3">
+                  {milestones.map((milestone) => (
+                    <div
+                      key={milestone.id}
+                      className="flex items-center gap-3 p-2 hover:bg-gray-50 dark:hover:bg-gray-600 rounded"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={milestone.completed}
+                        onChange={() => toggleMilestone(milestone.id)}
+                        className="w-5 h-5 text-blue-600"
+                      />
+                      <span
+                        className={`flex-1 ${
+                          milestone.completed
+                            ? "line-through text-gray-400"
+                            : ""
+                        }`}
+                      >
+                        {milestone.title}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                {showAddMilestone ? (
+                  <div className="mt-4 flex gap-2">
+                    <input
+                      type="text"
+                      value={newMilestone}
+                      onChange={(e) => setNewMilestone(e.target.value)}
+                      placeholder="Nouveau jalon..."
+                      className="flex-1 p-2 border rounded"
+                    />
+                    <button
+                      onClick={handleAddMilestone}
+                      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                      Ajouter
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => setShowAddMilestone(true)}
+                    className="mt-4 text-blue-500 hover:text-blue-600"
+                  >
+                    + Ajouter un jalon
+                  </button>
+                )}
+              </div>
+
+              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
+                <h4 className="text-lg font-medium mb-4">
+                  Notes et commentaires
+                </h4>
+                <textarea
+                  value={notes}
+                  onChange={handleNotesChange}
+                  placeholder="Ajoutez vos notes ici..."
+                  className="w-full h-32 p-3 border rounded-md resize-none"
+                />
               </div>
 
               <div className="flex justify-end">
