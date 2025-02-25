@@ -3,6 +3,7 @@ import {
   FaEnvelope,
   FaLock,
   FaUserPlus,
+  FaUser,
   //   FaGoogle,
   //   FaFacebook,
   //   FaApple,
@@ -12,6 +13,7 @@ import {
 const Login: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -22,6 +24,12 @@ const Login: React.FC = () => {
     e.preventDefault();
     // Handle login/register logic here
     console.log(formData);
+    if (isLogin) {
+      // Handle login logic here
+    } else {
+      // Handle register logic here
+      // ici c'est pour les backend donc pas mon problème
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,11 +43,9 @@ const Login: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-200 flex items-center justify-center">
-      {/* fix this part, when the bg image is set all elements under dosen't work
-      anymore */}
-      <div className="absolute inset-2 overflow-hidden">
+      <div className="absolute z-1 pointer-events-none">
         <img
-          className="w-full h-full opacity-50"
+          className="w-full h-full object-cover opacity-50"
           src="https://cdn.rareblocks.xyz/collection/clarity/images/hero/1/background-pattern.png"
           alt=""
         />
@@ -50,6 +56,31 @@ const Login: React.FC = () => {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+
+        {!isLogin && (
+            <div className="mb-4">
+              <label
+                htmlFor="username"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                Nom d'utilisateur
+              </label>
+              <div className="relative">
+                <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleChange}
+                  className="w-full pl-10 px-4 py-2 text-gray-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
+                  required
+                />
+              </div>
+            </div>
+          )}
+
+
           <div>
             <label
               htmlFor="email"
@@ -161,27 +192,6 @@ const Login: React.FC = () => {
           </button>
         </div>
 
-        {/* <div className="mt-6 text-center">
-          <p className="text-gray-600 mb-2">Ou connectez-vous avec</p>
-          <div className="flex justify-center space-x-4">
-            <button className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
-              <FaGoogle className="mr-2" />
-              Google
-            </button>
-            <button className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-              <FaFacebook className="mr-2" />
-              Facebook
-            </button>
-            <button className="flex items-center bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
-              <FaApple className="mr-2" />
-              Apple
-            </button>
-            <button className="flex items-center bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900">
-              <FaMicrosoft className="mr-2" />
-              Microsoft
-            </button>
-          </div>
-        </div> */}
       </div>
     </div>
   );
