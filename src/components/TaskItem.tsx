@@ -86,6 +86,13 @@ const TaskItem: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
+      <div className="absolute z-1 pointer-events-none">
+        <img
+          className="w-full h-3/4 object-cover opacity-50"
+          src="https://cdn.rareblocks.xyz/collection/clarity/images/hero/1/background-pattern.png"
+          alt=""
+        />
+      </div>
       <section className="relative py-8">
         <h1 className="text-4xl text-slate-800 font-bold text-center mb-6">Gestion des Tâches</h1>
         <div className="max-w-4xl mx-auto">
