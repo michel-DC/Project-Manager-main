@@ -1,7 +1,7 @@
 # 🚀 **Project Manager** – Empower Your Development Workflow 🚀
 
 <div align="center">
-  <img src="images-readme/project-manager.png" alt="Project Manager Home" width="600">
+  <img src="images-readme/home.png" alt="Project Manager Home" width="600">
 </div>
 
 ---
