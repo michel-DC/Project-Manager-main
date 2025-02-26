@@ -45,6 +45,12 @@ const techImages: { [key: string]: string } = {
   Git: "src/assets/icon-library/git-icon.png",
 };
 
+
+// const handleDelete = (e: React.FormEvent) => {
+//   e.preventDefault();
+//   alert("Votre projet à bien été supprimé !");
+// };
+
 const ProjectCard: React.FC<ProjectCardProps> = ({
   id,
   name,
