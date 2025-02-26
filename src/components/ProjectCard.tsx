@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react"; // Import useState for managing modal state
 import { useProjectContext } from "../context/ProjectContext";
+import { Modal } from "./ui/Modal"; // Import Modal component
 
 interface ProjectCardProps {
   id: number;
@@ -60,6 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tools,
 }) => {
   const { deleteProject } = useProjectContext();
+  const [showModal, setShowModal] = useState(false); // State for modal visibility
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 h-fit">
@@ -109,17 +111,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="border-t border-gray-100 pt-4 mb-4">
             <span className="text-sm text-gray-500">Outils</span>
             <div className="flex flex-wrap gap-2 mt-2">
-              {tools.map((tools) => (
+              {tools.map((tool) => (
                 <div
-                  key={tools}
+                  key={tool}
                   className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
                 >
                   <img
-                    src={techImages[tools]}
-                    alt={tools}
+                    src={techImages[tool]}
+                    alt={tool}
                     className="w-4 h-4"
                   />
-                  <span className="text-xs text-gray-600">{tools}</span>
+                  <span className="text-xs text-gray-600">{tool}</span>
                 </div>
               ))}
             </div>
@@ -166,7 +168,31 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </div>
             )}
             <p className="text-gray-600 text-sm">Description du projet ⌨️:</p>
-            <p className="text-gray-600 text-sm mb-2">{description}</p>
+            <div>
+              {description.length > 100 ? (
+                <>
+                  <p className="text-gray-600 font-semibold text-sm mb-2">
+                    {description.substring(0, 100)}...
+                  </p>
+                  <button
+                    onClick={() => setShowModal(true)}
+                    className="text-blue-600 hover:underline cursor-pointer"
+                  >
+                    voir plus
+                  </button>
+                </>
+              ) : (
+                <p className="text-gray-600 font-semibold text-sm mb-2">{description}</p>
+              )}
+              {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                  <div className="p-4">
+                    <h2 className="text-lg font-semibold">Description complète</h2>
+                    <p className="text-gray-600">{description}</p>
+                  </div>
+                </Modal>
+              )}
+            </div>
           </div>
         )}
 

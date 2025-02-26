@@ -1,17 +1,14 @@
 import React from "react";
 
 interface ModalProps {
-  isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
-
+export const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white text-black p-6 rounded-lg shadow-lg">
+    <div className="fixed inset-0 backdrop-blur-md bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white text-black p-4 rounded-lg shadow-lg w-auto max-w-md">
         {children}
         <button
           onClick={onClose}
@@ -24,4 +21,3 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   );
 };
 
-export default Modal;
