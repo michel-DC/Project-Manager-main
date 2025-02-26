@@ -12,7 +12,7 @@ export const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
         {children}
         <button
           onClick={onClose}
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-red-400"
         >
           Fermer
         </button>
