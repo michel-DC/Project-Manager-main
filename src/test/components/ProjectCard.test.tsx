@@ -60,6 +60,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tools,
 }) => {
   const { deleteProject } = useProjectContext();
+  const { editProject } = useProjectContext();
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 h-fit">
@@ -179,6 +180,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               Supprimer
             </button>
             <button
+            onClick={() => editProject(id)}
               className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors text-center"
             >
               Modifier

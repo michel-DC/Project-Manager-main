@@ -16,7 +16,7 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 gap-y-4 lg:items-center lg:grid-cols-2 xl:grid-cols-2">
             <div className="text-center xl:col-span-1 lg:text-left md:px-16 lg:px-0 xl:pr-20">
               <h1 className="text-3xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">
-                Une application pour gérer tous vos projets
+                Gérez tous vos projets Front-End au même endroit
               </h1>
               <p className="mt-2 text-lg text-gray-600 sm:mt-6 font-inter">
                 Gérez vos projets de développement web de manière efficace avec
