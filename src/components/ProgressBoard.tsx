@@ -143,7 +143,6 @@ const ProgressBoard: React.FC = () => {
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center mb-6">
           Tableau de progression
         </h1>
-
         <div className="mb-8">
           <label className="block text-gray-800 text-lg font-medium mb-3">
             Sélectionner un projet
