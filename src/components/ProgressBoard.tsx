@@ -228,7 +228,7 @@ const ProgressBoard: React.FC = () => {
                     max="100"
                     value={progress}
                     onChange={handleProgressChange}
-                    className="w-full h-4 bg-gray-200 rounded-full appearance-none cursor-pointer accent-green-500 hover:accent-green-600 transition-all duration-200"
+                    className="w-full h-4 bg-gray-200 border boder-slate-800 rounded-full appearance-none cursor-pointer accent-green-500 hover:accent-green-600 transition-all duration-200"
                     style={{
                       background: `linear-gradient(to right, #22C55E 0%, #22C55E ${progress}%, #D1D5DB ${progress}%, #D1D5DB 100%)`,
                     }}

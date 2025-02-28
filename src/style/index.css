@@ -10,6 +10,33 @@
   scroll-behavior: smooth;
 }
 
+:root {
+        --background: hsl(236, 38%, 1%);
+        --foreground: hsl(236, 23%, 97%);
+        --muted: hsl(356, 8%, 15%);
+        --muted-foreground: hsl(356, 7%, 61%);
+        --popover: hsl(236, 38%, 1%);
+        --popover-foreground: hsl(236, 23%, 97%);
+        --card: hsl(236, 38%, 1%);
+        --card-foreground: hsl(236, 23%, 97%);
+        --border: hsl(236, 2%, 10%);
+        --input: hsl(236, 2%, 10%);
+        --primary: hsl(236, 17%, 12%);
+        --primary-foreground: hsl(236, 17%, 72%);
+        --secondary: hsl(356, 17%, 12%);
+        --secondary-foreground: hsl(356, 17%, 72%);
+        --accent: hsl(116, 17%, 12%);
+        --accent-foreground: hsl(116, 17%, 72%);
+        --destructive: hsl(0, 80%, 50%);
+        --destructive-foreground: hsl(0, 0%, 100%);
+        --ring: hsl(236, 17%, 12%);
+        --chart-1: hsl(236, 17%, 12%);
+        --chart-2: hsl(356, 17%, 12%);
+        --chart-3: hsl(116, 17%, 12%);
+        --chart-4: hsl(356, 17%, 15%);
+        --chart-5: hsl(236, 20%, 12%);
+}
+
 /* custom scroll bar  */
 ::-webkit-scrollbar {
   width: 8px;
