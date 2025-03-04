@@ -60,13 +60,13 @@ const Sidebar: React.FC = () => {
             <span>Paramètre</span>
           </Link>
 
-          <Link
+            <Link
             to="/login"
-            className="inline-flex items-center px-3 py-3 text-md font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer"
-          >
+            className="inline-flex items-center px-3 py-3 w-full text-md font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer"
+            >
             <FaSignInAlt className="text-2xl mr-2" />
             <span>Se connecter</span>
-          </Link>
+            </Link>
         </div>
       </div>
     </nav>

@@ -1,0 +1,76 @@
+# Description détaillée du style du site web [codelynx.dev](https://codelynx.dev/)
+
+## Aperçu général
+
+Le site [codelynx.dev](https://codelynx.dev/) présente un design moderne et épuré, mettant en avant les technologies web et les formations proposées. L'interface est conçue pour offrir une expérience utilisateur intuitive, avec une typographie claire et une mise en page structurée.
+
+## Palette de couleurs
+
+Le site utilise une palette de couleurs sobres et professionnelles :
+
+- **Fond principal** : Blanc pur (#FFFFFF)
+- **Texte principal** : Noir intense (#000000)
+- **Liens et accents** : Bleu vif (#1E90FF)
+- **Boutons et éléments interactifs** : Vert émeraude (#2ECC71)
+- **Fonds secondaires et hover** : Gris clair (#F2F2F2)
+
+## Typographie
+
+La typographie est cohérente et lisible, contribuant à une hiérarchisation claire du contenu :
+
+- **Police principale** : Sans-serif moderne, telle que "Inter" ou "Roboto"
+- **Titres (h1, h2, h3, etc.)** : Gras avec une taille adaptée à chaque niveau
+- **Texte de paragraphe** : Taille standard (environ 16px) avec une hauteur de ligne confortable
+- **Liens** : Soulignés ou en couleur d'accentuation pour distinguer du texte normal
+
+## Mise en page
+
+La mise en page est réactive et s'adapte aux différentes tailles d'écran :
+
+- **En-tête** : Barre de navigation fixe en haut, avec le logo à gauche et les liens de navigation alignés à droite
+- **Section principale** : Contenu centré avec des marges généreuses, permettant une lecture aisée
+- **Sections secondaires** : Bandes alternées avec des arrière-plans légèrement grisés pour différencier les blocs
+- **Pied de page** : Informations de contact, liens vers les réseaux sociaux et mentions légales
+
+## Composants et éléments interactifs
+
+Le site intègre divers composants pour améliorer l'interaction utilisateur :
+
+- **Boutons** : Coins légèrement arrondis, couleur de fond en vert émeraude, texte en blanc, effet de survol avec une légère ombre portée
+- **Formulaires** : Champs avec bordures fines et coins arrondis, labels clairs, boutons de soumission stylisés
+- **Cartes** : Blocs d'information avec ombre légère, espacés uniformément, contenant des images ou des icônes
+- **Liens** : Changement de couleur ou soulignement au survol pour indiquer l'interactivité
+
+## Utilisation de Tailwind CSS
+
+Le site est construit avec le framework Tailwind CSS, offrant une grande flexibilité dans la personnalisation des styles :
+
+- **Classes utilitaires** : Utilisation intensive pour le padding, margin, flexbox, grid, etc.
+- **Responsive design** : Classes spécifiques pour chaque breakpoint, assurant une adaptabilité sur tous les appareils
+- **Thématisation** : Personnalisation des couleurs et typographies via la configuration Tailwind
+
+## Illustrations et médias
+
+Les images et icônes sont utilisées avec parcimonie pour soutenir le contenu sans le surcharger :
+
+- **Images** : Haute résolution, optimisées pour le web, avec des formats adaptés (JPEG, PNG)
+- **Icônes** : Pack d'icônes cohérent, probablement issu de bibliothèques comme FontAwesome ou Heroicons
+- **Vidéos** : Intégrées de manière fluide, avec des lecteurs responsives et contrôles personnalisés
+
+## Animations et transitions
+
+Des animations subtiles sont présentes pour améliorer l'expérience utilisateur :
+
+- **Transitions au survol** : Changement de couleur, légère élévation ou ombre portée
+- **Apparition des éléments** : Effet de fade-in lors du défilement pour une mise en avant progressive
+- **Feedback utilisateur** : Animations lors de l'envoi de formulaires ou d'interactions spécifiques
+
+## Accessibilité
+
+Le site prend en compte les bonnes pratiques d'accessibilité :
+
+- **Contraste des couleurs** : Suffisant pour une lecture aisée
+- **Navigation clavier** : Possible sans utilisation de la souris
+- **Descriptions alternatives** : Présentes pour les images et médias
+
+En synthèse le site offre une interface soignée et fonctionnelle, reflétant une expertise dans les technologies web et une attention particulière à l'expérience utilisateur.
