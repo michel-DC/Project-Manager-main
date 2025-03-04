@@ -84,7 +84,7 @@ const NewProject: React.FC = () => {
                   type="text"
                   value={projectName}
                   onChange={(e) => setProjectName(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   placeholder="Entrez le nom du projet"
                   required
                 />
@@ -100,7 +100,7 @@ const NewProject: React.FC = () => {
                   type="text"
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   placeholder="Entrez le type de projet"
                 />
               </div>
@@ -114,7 +114,7 @@ const NewProject: React.FC = () => {
                   type="text"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   placeholder="Entrez le nom du client"
                 />
               </div>
@@ -126,7 +126,7 @@ const NewProject: React.FC = () => {
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent h-40 text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent h-40 text-black"
                   placeholder="Entrez une description détaillée de votre projet"
                   required
                 />
@@ -140,7 +140,7 @@ const NewProject: React.FC = () => {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   required
                 />
               </div>
@@ -153,7 +153,7 @@ const NewProject: React.FC = () => {
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                 />
               </div>
               {/* Estimated Duration */}
@@ -164,7 +164,7 @@ const NewProject: React.FC = () => {
                 <select
                   value={estimatedDuration}
                   onChange={(e) => setEstimatedDuration(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   required
                 >
                   <option value="">Sélectionnez la durée</option>
@@ -330,7 +330,7 @@ const NewProject: React.FC = () => {
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   required
                 >
                   <option value="Planifié">Planifié</option>
@@ -346,7 +346,7 @@ const NewProject: React.FC = () => {
                 <select
                   value={priority}
                   onChange={(e) => setPriority(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   required
                 >
                   <option value="Haute">Haute</option>
@@ -362,7 +362,7 @@ const NewProject: React.FC = () => {
                 <select
                   value={keyObjectives}
                   onChange={(e) => setKeyObjectives(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   required
                 >
                   <option value="Améliorer les compétences en programmation">
@@ -395,7 +395,7 @@ const NewProject: React.FC = () => {
                   <textarea
                     value={keyObjectives === "Autre" ? "" : keyObjectives}
                     onChange={(e) => setKeyObjectives(e.target.value)}
-                    className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                    className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                     placeholder="Définissez les objectifs clés"
                     required
                   />
@@ -410,7 +410,7 @@ const NewProject: React.FC = () => {
                   type="url"
                   value={githubLink}
                   onChange={(e) => setGithubLink(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   placeholder="Entrez le lien GitHub"
                 />
               </div>
@@ -423,7 +423,7 @@ const NewProject: React.FC = () => {
                   type="url"
                   value={projectURL}
                   onChange={(e) => setProjectURL(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   placeholder="Entrez l'URL du projet"
                 />
               </div>
@@ -436,7 +436,7 @@ const NewProject: React.FC = () => {
                   type="text"
                   value={teamMembers}
                   onChange={(e) => setTeamMembers(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   placeholder="Entrez les membres de l'équipe"
                 />
               </div>
@@ -449,7 +449,7 @@ const NewProject: React.FC = () => {
                   type="number"
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  className="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
                   placeholder="Entrez le budget"
                 />
               </div>
