@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 text-white">
+    <div className="flex flex-col min-h-screen bg-[var(--background)] text-white">
       <header className="w-full">
         <Sidebar />
       </header>

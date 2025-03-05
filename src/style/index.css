@@ -13,31 +13,62 @@
   letter-spacing: 0.5px;
 }
 
-:root {
-        --background: hsl(236, 38%, 1%);
-        --foreground: hsl(236, 23%, 97%);
-        --muted: hsl(356, 8%, 15%);
-        --muted-foreground: hsl(356, 7%, 61%);
-        --popover: hsl(236, 38%, 1%);
-        --popover-foreground: hsl(236, 23%, 97%);
-        --card: hsl(236, 38%, 1%);
-        --card-foreground: hsl(236, 23%, 97%);
-        --border: hsl(236, 2%, 10%);
-        --input: hsl(236, 2%, 10%);
-        --primary: hsl(236, 17%, 12%);
-        --primary-foreground: hsl(236, 17%, 72%);
-        --secondary: hsl(356, 17%, 12%);
-        --secondary-foreground: hsl(356, 17%, 72%);
-        --accent: hsl(116, 17%, 12%);
-        --accent-foreground: hsl(116, 17%, 72%);
-        --destructive: hsl(0, 80%, 50%);
-        --destructive-foreground: hsl(0, 0%, 100%);
-        --ring: hsl(236, 17%, 12%);
-        --chart-1: hsl(236, 17%, 12%);
-        --chart-2: hsl(356, 17%, 12%);
-        --chart-3: hsl(116, 17%, 12%);
-        --chart-4: hsl(356, 17%, 15%);
-        --chart-5: hsl(236, 20%, 12%);
+/* from ui.jln.dev  */
+@layer base {
+  :root {
+    --background: hsl(196, 48%, 100%);
+    --foreground: hsl(196, 58%, 4%);
+    --muted: hsl(196, 28%, 90%);
+    --muted-foreground: hsl(196, 0%, 29%);
+    --popover: hsl(196, 48%, 100%);
+    --popover-foreground: hsl(196, 58%, 4%);
+    --card: hsl(0, 0%, 99%);
+    --card-foreground: hsl(196, 58%, 3%);
+    --border: hsl(196, 5%, 90%);
+    --input: hsl(196, 5%, 90%);
+    --primary: hsl(196, 77%, 75%);
+    --primary-foreground: hsl(196, 77%, 15%);
+    --secondary: hsl(196, 3%, 81%);
+    --secondary-foreground: hsl(196, 3%, 21%);
+    --accent: hsl(196, 11%, 72%);
+    --accent-foreground: hsl(196, 11%, 12%);
+    --destructive: hsl(22, 92%, 32%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --ring: hsl(196, 77%, 75%);
+    --chart-1: hsl(196, 77%, 75%);
+    --chart-2: hsl(196, 3%, 81%);
+    --chart-3: hsl(196, 11%, 72%);
+    --chart-4: hsl(196, 3%, 84%);
+    --chart-5: hsl(196, 80%, 75%);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: hsl(196, 30%, 1%);
+    --foreground: hsl(196, 40%, 98%);
+    --muted: hsl(196, 28%, 10%);
+    --muted-foreground: hsl(196, 0%, 71%);
+    --popover: hsl(196, 30%, 1%);
+    --popover-foreground: hsl(196, 40%, 98%);
+    --card: hsl(196, 30%, 2%);
+    --card-foreground: hsl(196, 40%, 99%);
+    --border: hsl(196, 5%, 11%);
+    --input: hsl(196, 5%, 11%);
+    --primary: hsl(196, 77%, 75%);
+    --primary-foreground: hsl(196, 77%, 15%);
+    --secondary: hsl(196, 2%, 12%);
+    --secondary-foreground: hsl(196, 2%, 72%);
+    --accent: hsl(196, 11%, 18%);
+    --accent-foreground: hsl(196, 11%, 78%);
+    --destructive: hsl(22, 92%, 60%);
+    --destructive-foreground: hsl(22, 92%, 0%);
+    --ring: hsl(196, 77%, 75%);
+    --chart-1: hsl(196, 77%, 75%);
+    --chart-2: hsl(196, 2%, 12%);
+    --chart-3: hsl(196, 11%, 18%);
+    --chart-4: hsl(196, 2%, 15%);
+    --chart-5: hsl(196, 80%, 75%);
+  }
 }
 
 /* custom scroll bar  */
