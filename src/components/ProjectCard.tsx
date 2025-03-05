@@ -45,12 +45,6 @@ const techImages: { [key: string]: string } = {
   Git: "src/assets/icon-library/git-icon.png",
 };
 
-
-// const handleDelete = (e: React.FormEvent) => {
-//   e.preventDefault();
-//   alert("Votre projet à bien été supprimé !");
-// };
-
 const ProjectCard: React.FC<ProjectCardProps> = ({
   id,
   name,
@@ -70,43 +64,43 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [showModal, setShowModal] = useState(false); // State for modal visibility
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 h-fit">
+    <div className="bg-[var(--background)] rounded-xl shadow-sm border border-[var(--border)] h-fit">
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">{name}</h3>
+        <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">{name}</h3>
 
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div className="text-sm">
-            <span className="text-gray-500">Durée ⏳</span>
-            <p className="font-medium text-gray-900">{estimatedDuration}</p>
+            <span className="text-[var(--muted-foreground)]">Durée ⏳</span>
+            <p className="font-medium text-[var(--foreground)]">{estimatedDuration}</p>
           </div>
 
           <div className="text-sm">
-            <span className="text-gray-500">Statut 🚦</span>
-            <p className="font-medium text-gray-900">{status}</p>
+            <span className="text-[var(--muted-foreground)]">Statut 🚦</span>
+            <p className="font-medium text-[var(--foreground)]">{status}</p>
           </div>
 
           <div className="text-sm">
-            <span className="text-gray-500">Priorité ⚡</span>
-            <p className="font-medium text-gray-900">{priority}</p>
+            <span className="text-[var(--muted-foreground)]">Priorité ⚡</span>
+            <p className="font-medium text-[var(--foreground)]">{priority}</p>
           </div>
 
           <div className="text-sm">
-            <span className="text-gray-500">Date début 📅</span>
-            <p className="font-medium text-gray-900">{startDate}</p>
+            <span className="text-[var(--muted-foreground)]">Date début 📅</span>
+            <p className="font-medium text-[var(--foreground)]">{startDate}</p>
           </div>
         </div>
 
         {technologies.length > 0 && (
-          <div className="border-t border-gray-100 pt-4 mb-4">
-            <span className="text-sm text-gray-500">Technologies 🛠️</span>
+          <div className="border-t border-[var(--border)] pt-4 mb-4">
+            <span className="text-sm text-[var(--muted-foreground)]">Technologies 🛠️</span>
             <div className="flex flex-wrap gap-2 mt-2">
               {technologies.map((tech) => (
                 <div
                   key={tech}
-                  className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
+                  className="flex items-center gap-1 bg-[var(--muted)] px-2 py-1 rounded"
                 >
                   <img src={techImages[tech]} alt={tech} className="w-4 h-4" />
-                  <span className="text-xs text-gray-600">{tech}</span>
+                  <span className="text-xs text-[var(--muted-foreground)]">{tech}</span>
                 </div>
               ))}
             </div>
@@ -114,20 +108,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
 
         {tools.length > 0 && (
-          <div className="border-t border-gray-100 pt-4 mb-4">
-            <span className="text-sm text-gray-500">Outils</span>
+          <div className="border-t border-[var(--border)] pt-4 mb-4">
+            <span className="text-sm text-[var(--muted-foreground)]">Outils</span>
             <div className="flex flex-wrap gap-2 mt-2">
               {tools.map((tool) => (
                 <div
                   key={tool}
-                  className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded"
+                  className="flex items-center gap-1 bg-[var(--muted)] px-2 py-1 rounded"
                 >
                   <img
                     src={techImages[tool]}
                     alt={tool}
                     className="w-4 h-4"
                   />
-                  <span className="text-xs text-gray-600">{tool}</span>
+                  <span className="text-xs text-[var(--muted-foreground)]">{tool}</span>
                 </div>
               ))}
             </div>
@@ -138,10 +132,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="space-y-3">
             {githubLink && (
               <div className="text-sm">
-                <span className="text-gray-500">GitHub</span>
+                <span className="text-[var(--muted-foreground)]">GitHub</span>
                 <a
                   href={githubLink}
-                  className="block text-blue-600 hover:underline"
+                  className="block text-[var(--primary)] hover:underline"
                 >
                   {githubLink}
                 </a>
@@ -150,10 +144,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
             {projectURL && (
               <div className="text-sm">
-                <span className="text-gray-500">URL</span>
+                <span className="text-[var(--muted-foreground)]">URL</span>
                 <a
                   href={projectURL}
-                  className="block text-blue-600 hover:underline"
+                  className="block text-[var(--primary)] hover:underline"
                 >
                   {projectURL}
                 </a>
@@ -162,39 +156,39 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
             {teamMembers && (
               <div className="text-sm">
-                <span className="text-gray-500">Équipe 🙋‍♂️</span>
-                <p className="text-gray-900">{teamMembers}</p>
+                <span className="text-[var(--muted-foreground)]">Équipe 🙋‍♂️</span>
+                <p className="text-[var(--foreground)]">{teamMembers}</p>
               </div>
             )}
 
             {budget && (
               <div className="text-sm">
-                <span className="text-gray-500">Budget 💶</span>
-                <p className="text-gray-900">{budget} €</p>
+                <span className="text-[var(--muted-foreground)]">Budget 💶</span>
+                <p className="text-[var(--foreground)]">{budget} €</p>
               </div>
             )}
-            <p className="text-gray-600 text-sm">Description du projet ⌨️:</p>
+            <p className="text-[var(--muted-foreground)] text-sm">Description du projet ⌨️:</p>
             <div>
               {description.length > 100 ? (
                 <>
-                  <p className="text-gray-600 font-semibold text-sm mb-2">
+                  <p className="text-[var(--muted-foreground)] font-semibold text-sm mb-2">
                     {description.substring(0, 100)}...
                   </p>
                   <button
                     onClick={() => setShowModal(true)}
-                    className="text-blue-600 hover:underline cursor-pointer"
+                    className="text-[var(--primary)] hover:underline cursor-pointer"
                   >
                     voir plus
                   </button>
                 </>
               ) : (
-                <p className="text-gray-600 font-semibold text-sm mb-2">{description}</p>
+                <p className="text-[var(--muted-foreground)] font-semibold text-sm mb-2">{description}</p>
               )}
               {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                   <div className="p-4">
-                    <h2 className="text-lg font-semibold">Description complète</h2>
-                    <p className="text-gray-600">{description}</p>
+                    <h2 className="text-lg font-semibold text-[var(--foreground)]">Description complète</h2>
+                    <p className="text-[var(--muted-foreground)]">{description}</p>
                   </div>
                 </Modal>
               )}
@@ -202,16 +196,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         )}
 
-        <div className="border-t border-gray-100 mt-6 pt-4">
+        <div className="border-t border-[var(--border)] mt-6 pt-4">
           <div className="flex gap-3">
             <button
               onClick={() => deleteProject(id)}
-              className="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition-colors cursor-pointer"
+              className="flex-1 px-4 py-2 text-sm font-medium text-[var(--destructive-foreground)] bg-[var(--destructive)] rounded-md hover:bg-red-600 transition-colors cursor-pointer"
             >
               Supprimer
             </button>
             <button
-              className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors text-center cursor-pointer"
+              className="flex-1 px-4 py-2 text-sm font-medium text-[var(--foreground)] bg-[var(--muted)] rounded-md hover:bg-gray-200 transition-colors text-center cursor-pointer"
             >
               Modifier
             </button>

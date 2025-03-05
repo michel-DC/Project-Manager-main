@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
   const { projects } = useProjectContext();
 
   return (
-    <div className="bg-gray-200 min-h-screen">
+    <div className="bg-[var(--background)] min-h-screen">
       <section className="relative py-12 sm:py-16">
         <div className="absolute inset-0 overflow-hidden">
           <img
@@ -20,13 +20,13 @@ const Projects: React.FC = () => {
 
         <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black text-center mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--foreground)] text-center mb-8">
               Mes Projets
             </h1>
 
             <Link
               to="/new-project"
-              className="inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 mb-12"
+              className="inline-flex items-center px-8 py-4 text-lg font-bold text-[var(--foreground)] transition-all duration-200 bg-[var(--muted)] border border-transparent rounded-lg hover:bg-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--muted)] mb-12"
             >
               <FaPlus className="mr-2" />
               Ajouter un nouveau projet
@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
                 ))
               ) : (
                 <div className="col-span-full flex justify-center">
-                  <p className="text-xl text-gray-700 text-center">
+                  <p className="text-xl text-[var(--muted-foreground)] text-center">
                     Aucun projet ajouté pour le moment.
                   </p>
                 </div>
