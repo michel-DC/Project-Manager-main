@@ -25,9 +25,9 @@ const HeroSection = () => {
               </p>
 
               <Link
-                to="/new-project"
+                to="/projects"
                 title=""
-                className="inline-flex px-8 py-4 mt-8 text-lg font-bold text-[var(--foreground)] transition-all duration-200 bg-[var(--muted)] border border-transparent rounded sm:mt-10 font-sans hover:bg-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--muted)]"
+                className="inline-flex px-8 py-4 mt-8 text-lg font-bold text-[var(--foreground)] transition-all duration-200 bg-[var(--muted)] border border-transparent rounded sm:mt-10 font-sans hover:bg-[var(--hover-effect)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--muted)]"
                 role="button"
               >
                 Ajouter votre projet
@@ -101,11 +101,11 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="xl:col-span-1">
+            <div className="xl:col-span-1 w-full">
               <img
-                className="w-4/5 mx-auto border-[var(--foreground)] border-2 rounded-lg relative z-10 shadow-[0_0_50px_10px_rgba(0,0,0,0.3)]"
-                src="Hero/project-manager.png"
-                alt="Demo image"
+                className="w-full mx-auto rounded-lg relative z-10 lg:w-3/4 xl:w-2/3"
+                src="Hero/illustration.png"
+                alt="Image d'illustration"
               />
             </div>
           </div>

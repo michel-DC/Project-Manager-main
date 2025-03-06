@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
 
             <Link
               to="/new-project"
-              className="inline-flex items-center px-8 py-4 text-lg font-bold text-[var(--foreground)] transition-all duration-200 bg-[var(--muted)] border border-transparent rounded-lg hover:bg-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--muted)] mb-12"
+              className="inline-flex items-center px-8 py-4 text-lg font-bold text-[var(--foreground)] transition-all duration-200 bg-[var(--muted)] border border-transparent rounded-lg hover:bg-[var(--hover-effect)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--muted)] mb-12"
             >
               <FaPlus className="mr-2" />
               Ajouter un nouveau projet
