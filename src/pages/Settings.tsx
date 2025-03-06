@@ -104,10 +104,10 @@ const Settings: React.FC = () => {
                     onChange={(e) => setDefaultTech(e.target.value)}
                     className="w-full text-[var(--foreground)] p-2 border border-[var(--border)] rounded-lg"
                   >
-                    <option value="React">React</option>
-                    <option value="Vue">Vue</option>
-                    <option value="Angular">Angular</option>
-                    <option value="TypeScript">TypeScript</option>
+                    <option className="text-[var(--input)]" value="React">React</option>
+                    <option className="text-[var(--input)]" value="Vue">Vue</option>
+                    <option className="text-[var(--input)]" value="Angular">Angular</option>
+                    <option className="text-[var(--input)]" value="TypeScript">TypeScript</option>
                   </select>
                 </div>
               </div>
@@ -154,12 +154,13 @@ const Settings: React.FC = () => {
                     onChange={(e) => setBackupFrequency(e.target.value)}
                     className="w-full text-[var(--foreground)] p-2 border border-[var(--border)] rounded-lg"
                   >
-                    <option value="hourly">Toutes les heures</option>
-                    <option value="daily">Quotidienne</option>
-                    <option value="weekly">Hebdomadaire</option>
-                    <option value="manual">Manuel uniquement</option>
+                    <option className="text-[var(--input)]" value="hourly">Toutes les heures</option>
+                    <option className="text-[var(--input)]" value="daily">Quotidienne</option>
+                    <option className="text-[var(--input)]" value="weekly">Hebdomadaire</option>
+                    <option className="text-[var(--input)]" value="manual">Manuel uniquement</option>
                   </select>
                 </div>
+                <p className="pt-4 flex items-center justify-center">*Certaines fonctionalités de cette page ne sont actuellement pas disponible*</p>
               </div>
             </div>
           </div>

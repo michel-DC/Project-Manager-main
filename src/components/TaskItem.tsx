@@ -85,7 +85,7 @@ const TaskItem: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-[var(--background)] p-6">
       <div className="absolute z-1 pointer-events-none">
         <img
           className="w-full h-3/4 object-cover opacity-50"
@@ -94,14 +94,14 @@ const TaskItem: React.FC = () => {
         />
       </div>
       <section className="relative py-8">
-        <h1 className="text-4xl text-slate-800 font-bold text-center mb-6">Gestion des Tâches</h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl text-[var(--foreground)] font-bold text-center mb-6">Gestion des Tâches</h1>
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-            <h2 className="text-2xl text-slate-800 font-semibold mb-4">Choisir un projet</h2>
+          <div className="bg-[var(--muted)] rounded-lg shadow-lg p-6 mb-6">
+            <h2 className="text-2xl text-[var(--foreground)] font-semibold mb-4">Choisir un projet</h2>
             <select
               value={selectedProject}
               onChange={(e) => setSelectedProject(Number(e.target.value))}
-              className="p-2 border rounded-lg bg-gray-200 text-gray-800 mb-4"
+              className="p-2 border rounded-lg bg-[var(--muted)] text-[var(--foreground)] mb-4"
             >
               <option value={0}>Choisir un projet</option>
               {projects.map((project) => (
@@ -113,18 +113,18 @@ const TaskItem: React.FC = () => {
           </div>
 
           {selectedProject > 0 && (
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-6 mt-6">
-              <h2 className="text-2xl text-slate-800 font-semibold mb-4">Créer un nouveau groupe de tâches</h2>
+            <div className="bg-[var(--muted)] rounded-lg shadow-lg p-6 mb-6 mt-6">
+              <h2 className="text-2xl text-[var(--foreground)] font-semibold mb-4">Créer un nouveau groupe de tâches</h2>
               <input
                 type="text"
                 value={newGroupTitle}
                 onChange={(e) => setNewGroupTitle(e.target.value)}
                 placeholder="Titre du groupe"
-                className="p-2 border border-slate-800 text-slate-800 rounded-lg w-full mb-4 focus:border-slate-800"
+                className="p-2 border border-[var(--foreground)] text-[var(--foreground)] rounded-lg w-full mb-4 focus:border-[var(--foreground)]"
               />
               <button
                 onClick={handleAddGroup}
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
+                className="px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-lg hover:bg-[var(--primary)] transition duration-200 cursor-pointer"
               >
                 Ajouter un groupe
               </button>
@@ -132,15 +132,15 @@ const TaskItem: React.FC = () => {
           )}
 
           {taskGroups[selectedProject]?.map((group, groupIndex) => (
-            <div key={groupIndex} className="bg-white rounded-lg shadow-lg p-6 mb-6">
-              <h2 className="text-2xl text-slate-800 font-semibold mb-4">{group.title}</h2>
+            <div key={groupIndex} className="bg-[var(--muted)] rounded-lg shadow-lg p-6 mb-6">
+              <h2 className="text-2xl text-[var(--foreground)] font-semibold mb-4">{group.title}</h2>
               <div className="flex gap-4 mb-4">
                 <input
                   type="text"
                   value={newTaskDescription}
                   onChange={(e) => setNewTaskDescription(e.target.value)}
                   placeholder="Entrer une tâche à réaliser..."
-                  className="flex-1 p-2 border rounded-lg bg-gray-200 text-gray-800"
+                  className="flex-1 p-2 border rounded-lg bg-[var(--muted)] text-[var(--foreground)]"
                 />
 
                 <input
@@ -152,12 +152,12 @@ const TaskItem: React.FC = () => {
                     }
                     setDueDate(e.target.value);
                   }}
-                  className="p-2 border rounded-lg bg-gray-200 text-gray-800"
+                  className="p-2 border rounded-lg bg-[var(--muted)] text-[var(--foreground)]"
                 />
 
                 <button
                   onClick={() => handleAddTask(selectedProject, groupIndex)}
-                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-200"
+                  className="px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-lg hover:bg-[var(--primary)] transition duration-200 cursor-pointer"
                 >
                   Ajouter une tâche
                 </button>
@@ -167,16 +167,16 @@ const TaskItem: React.FC = () => {
                 {group.tasks.map((task: Task) => (
                   <div
                     key={task.id}
-                    className="p-4 border border-gray-300 rounded-lg flex items-center justify-between bg-gray-50 hover:shadow-md transition duration-200"
+                    className="p-4 border border-[var(--border)] rounded-lg flex items-center justify-between bg-[var(--muted)] hover:shadow-md transition duration-200"
                   >
                     <div className="flex items-center flex-1">
                       <input
                         type="checkbox"
                         checked={task.completed}
                         onChange={() => handleToggleTask(selectedProject, groupIndex, task.id)}
-                        className="mr-3 h-5 w-5 rounded border-gray-600 text-green-500 focus:ring-green-500"
+                        className="mr-3 h-5 w-5 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)]"
                       />
-                      <span className={`text-lg ${task.completed ? "line-through text-gray-500" : "text-gray-900"}`}>
+                      <span className={`text-lg ${task.completed ? "line-through text-[var(--muted-foreground)]" : "text-[var(--foreground)]"}`}>
                         {task.description}
                       </span>
                       <span className="ml-4 text-sm text-red-800">
@@ -185,7 +185,7 @@ const TaskItem: React.FC = () => {
                     </div>
                     <button
                       onClick={() => handleDeleteTask(selectedProject, groupIndex, task.id)}
-                      className="ml-4 px-3 py-1 text-red-700 hover:text-red-800 rounded-md hover:bg-red-100 transition duration-200"
+                      className="ml-4 px-3 py-1 text-red-700 hover:text-red-800 rounded-md hover:bg-red-100 transition duration-200 cursor-pointer"
                     >
                       Supprimer
                     </button>

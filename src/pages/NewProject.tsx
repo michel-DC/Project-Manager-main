@@ -54,7 +54,7 @@ const NewProject: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-200">
+    <div className="bg-[var(--background)]">
       <section className="relative py-12 sm:py-16 lg:pb-40">
         <div className="absolute bottom-0 right-0 overflow-hidden">
           <img
@@ -66,10 +66,10 @@ const NewProject: React.FC = () => {
 
         <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="text-center lg:text-left md:px-16 lg:px-0">
-            <h1 className="text-3xl font-bold leading-tight text-black sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">
+            <h1 className="text-3xl font-bold leading-tight text-[var(--foreground)] sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">
               Créer un Nouveau Projet
             </h1>
-            <p className="mt-2 text-lg text-black sm:mt-6 font-inter">
+            <p className="mt-2 text-lg text-[var(--muted-foreground)] sm:mt-6 font-inter">
               Remplissez les informations ci-dessous pour créer votre nouveau
               projet
             </p>
@@ -77,14 +77,14 @@ const NewProject: React.FC = () => {
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               {/* Project Name */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Nom du Projet 📝
                 </label>
                 <input
                   type="text"
                   value={projectName}
                   onChange={(e) => setProjectName(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   placeholder="Entrez le nom du projet"
                   required
                 />
@@ -93,92 +93,92 @@ const NewProject: React.FC = () => {
               {/* Rest of the form fields - keeping same structure but updating styles */}
               {/* Project Type */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Type de Projet ❓
                 </label>
                 <input
                   type="text"
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   placeholder="Entrez le type de projet"
                 />
               </div>
 
               {/* Client Name */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Nom du Client 👨‍💼 (optionel)
                 </label>
                 <input
                   type="text"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   placeholder="Entrez le nom du client"
                 />
               </div>
               {/* Description */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Description 📖
                 </label>
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent h-40 text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent h-40 text-[var(--foreground)]"
                   placeholder="Entrez une description détaillée de votre projet"
                   required
                 />
               </div>
               {/* Estimated Start Date */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Date de Début Estimée 📅
                 </label>
                 <input
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   required
                 />
               </div>
               {/* Estimated End Date */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Date de Fin Estimée 📅 (optionel)
                 </label>
                 <input
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                 />
               </div>
               {/* Estimated Duration */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Durée Estimée ⏳
                 </label>
                 <select
                   value={estimatedDuration}
                   onChange={(e) => setEstimatedDuration(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   required
                 >
                   <option value="">Sélectionnez la durée</option>
-                  <option value="~ 3 jours">~3 jours</option>
-                  <option value="1 semaine">1 semaine</option>
-                  <option value="2 semaines">2 semaines</option>
-                  <option value="1 mois">1 mois</option>
-                  <option value="2 mois">2 mois</option>
-                  <option value="3 mois">3 mois</option>
+                  <option className="text-[var(--input)]" value="~ 3 jours">~3 jours</option>
+                  <option className="text-[var(--input)]" value="1 semaine">1 semaine</option>
+                  <option className="text-[var(--input)]" value="2 semaines">2 semaines</option>
+                  <option className="text-[var(--input)]" value="1 mois">1 mois</option>
+                  <option className="text-[var(--input)]" value="2 mois">2 mois</option>
+                  <option className="text-[var(--input)]" value="3 mois">3 mois</option>
                 </select>
               </div>
               {/* Technologies Used */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Technologies Utilisées 🛠️
                 </label>
                 <div className="flex flex-wrap mt-2">
@@ -233,7 +233,7 @@ const NewProject: React.FC = () => {
                         alt={tech.name}
                         className={`w-16 h-16 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-120 ${
                           technologies.includes(tech.name)
-                            ? "border-4 border-gray-900 rounded-lg"
+                            ? "border-4 border-[var(--foreground)] rounded-lg"
                             : ""
                         }`}
                         onClick={() => {
@@ -244,14 +244,14 @@ const NewProject: React.FC = () => {
                           );
                         }}
                       />
-                      <span className="text-black mt-1">{tech.name}</span>
+                      <span className="text-[var(--foreground)] mt-1">{tech.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Tools and Libraries */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Outils et Bibliothèques 🛠️
                 </label>
                 <div className="flex flex-wrap mt-2">
@@ -306,7 +306,7 @@ const NewProject: React.FC = () => {
                         alt={tool.name}
                         className={`w-16 h-16 m-2 cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-120 ${
                           tools.includes(tool.name)
-                            ? "border-4 border-gray-900 rounded-lg"
+                            ? "border-4 border-[var(--foreground)] rounded-lg"
                             : ""
                         }`}
                         onClick={() => {
@@ -317,85 +317,85 @@ const NewProject: React.FC = () => {
                           );
                         }}
                       />
-                      <span className="text-black mt-1">{tool.name}</span>
+                      <span className="text-[var(--foreground)] mt-1">{tool.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Status */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Statut 🚦
                 </label>
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   required
                 >
-                  <option value="Planifié">Planifié</option>
-                  <option value="En cours">En cours</option>
-                  <option value="Terminé">Terminé</option>
+                  <option className="text-[var(--input)]" value="Planifié">Planifié</option>
+                  <option className="text-[var(--input)]" value="En cours">En cours</option>
+                  <option className="text-[var(--input)]" value="Terminé">Terminé</option>
                 </select>
               </div>
               {/* Priority */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Priorité⚡
                 </label>
                 <select
                   value={priority}
                   onChange={(e) => setPriority(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   required
                 >
-                  <option value="Haute">Haute</option>
-                  <option value="Moyenne">Moyenne</option>
-                  <option value="Basse">Basse</option>
+                  <option className="text-[var(--input)]" value="Haute">Haute</option>
+                  <option className="text-[var(--input)]" value="Moyenne">Moyenne</option>
+                  <option className="text-[var(--input)]" value="Basse">Basse</option>
                 </select>
               </div>
               {/* Key Objectives */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Objectifs Clés 🎯
                 </label>
                 <select
                   value={keyObjectives}
                   onChange={(e) => setKeyObjectives(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   required
                 >
-                  <option value="Améliorer les compétences en programmation">
+                  <option className="text-[var(--input)]" value="Améliorer les compétences en programmation">
                     Améliorer les compétences en programmation
                   </option>
-                  <option value="Développer un portfolio">
+                  <option className="text-[var(--input)]" value="Développer un portfolio">
                     Développer un portfolio
                   </option>
-                  <option value="Apprendre une nouvelle technologie">
+                  <option className="text-[var(--input)]" value="Apprendre une nouvelle technologie">
                     Apprendre une nouvelle technologie
                   </option>
-                  <option value="Collaborer avec d'autres développeurs">
+                  <option className="text-[var(--input)]" value="Collaborer avec d'autres développeurs">
                     Collaborer avec d'autres développeurs
                   </option>
-                  <option value="Créer un produit commercialisable">
+                  <option className="text-[var(--input)]" value="Créer un produit commercialisable">
                     Créer un produit commercialisable
                   </option>
-                  <option value="Contribuer à un projet open source">
+                  <option className="text-[var(--input)]" value="Contribuer à un projet open source">
                     Contribuer à un projet open source
                   </option>
-                  <option value="Automatiser des tâches répétitives">
+                  <option className="text-[var(--input)]" value="Automatiser des tâches répétitives">
                     Automatiser des tâches répétitives
                   </option>
-                  <option value="Explorer de nouvelles idées">
+                  <option className="text-[var(--input)]" value="Explorer de nouvelles idées">
                     Explorer de nouvelles idées
                   </option>
-                  <option value="Autre">Autre</option>
+                  <option className="text-[var(--input)]" value="Autre">Autre</option>
                 </select>
                 {keyObjectives === "Autre" && (
                   <textarea
                     value={keyObjectives === "Autre" ? "" : keyObjectives}
                     onChange={(e) => setKeyObjectives(e.target.value)}
-                    className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                    className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                     placeholder="Définissez les objectifs clés"
                     required
                   />
@@ -403,53 +403,53 @@ const NewProject: React.FC = () => {
               </div>
               {/* GitHub Link */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Lien GitHub (optionnel)
                 </label>
                 <input
                   type="url"
                   value={githubLink}
                   onChange={(e) => setGithubLink(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   placeholder="Entrez le lien GitHub"
                 />
               </div>
               {/* Project URL */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   URL du Projet (optionel)
                 </label>
                 <input
                   type="url"
                   value={projectURL}
                   onChange={(e) => setProjectURL(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   placeholder="Entrez l'URL du projet"
                 />
               </div>
               {/* Team Members */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Membres de l'équipe 🙋‍♂️
                 </label>
                 <input
                   type="text"
                   value={teamMembers}
                   onChange={(e) => setTeamMembers(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   placeholder="Entrez les membres de l'équipe"
                 />
               </div>
               {/* Budget */}
               <div>
-                <label className="block text-black font-medium">
+                <label className="block text-[var(--foreground)] font-medium">
                   Budget (en €) 💶
                 </label>
                 <input
                   type="number"
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  className="mt-1 p-3 w-full border border-slate-800 rounded-md shadow-sm focus:ring-2 focus:ring-gray-900 focus:border-transparent text-black"
+                  className="mt-1 p-3 w-full border border-[var(--foreground)] rounded-md shadow-sm focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent text-[var(--foreground)]"
                   placeholder="Entrez le budget"
                 />
               </div>
@@ -458,7 +458,7 @@ const NewProject: React.FC = () => {
               <div className="flex justify-between mt-8">
                 <button
                   type="submit"
-                  className="inline-flex px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                  className="inline-flex px-8 py-4 text-lg font-bold text-[var(--foreground)] transition-all duration-200 bg-[var(--muted)] border border-transparent rounded hover:bg-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--muted)]"
                   onClick={(e) => {
                     handleSubmit(e);
                     window.location.href = "/projects";
@@ -468,7 +468,7 @@ const NewProject: React.FC = () => {
                 </button>
                 <button
                   type="button"
-                  className="inline-flex px-8 py-4 text-lg font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-900 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                  className="inline-flex px-8 py-4 text-lg font-bold text-[var(--foreground)] transition-all duration-200 bg-[var(--background)] border border-[var(--foreground)] rounded hover:bg-[var(--muted)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--foreground)]"
                   onClick={() => window.history.back()}
                 >
                   Annuler
