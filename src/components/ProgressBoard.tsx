@@ -324,7 +324,7 @@ const ProgressBoard: React.FC = () => {
                   ) : (
                     <button
                       onClick={() => setShowAddMilestone(true)}
-                      className="mt-4 text-[var(--primary)] hover:text-[var(--primary)]"
+                      className="mt-4 text-[var(--primary)] hover:text-[var(--primary)] cursor-pointer"
                     >
                       + Ajouter un jalon
                     </button>

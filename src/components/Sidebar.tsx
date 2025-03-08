@@ -41,7 +41,7 @@ const Sidebar: React.FC = () => {
             className="flex items-center space-x-2 text-[var(--foreground)] hover:text-[var(--primary)] px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
           >
             <IoStatsChart className="text-2xl" />
-            <span>Progress</span>
+            <span>Progression</span>
           </Link>
 
           <Link

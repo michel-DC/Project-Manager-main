@@ -27,6 +27,7 @@
     --card-foreground: hsl(196, 58%, 3%);
     --border: hsl(196, 5%, 90%);
     --input: hsl(196, 5%, 11%);
+    --input-hover: hsl(196, 5%, 11%);
     --primary: hsl(196, 77%, 75%);
     --primary-foreground: hsl(196, 77%, 15%);
     --secondary: hsl(196, 3%, 81%);
@@ -45,31 +46,32 @@
   }
 
   .dark {
-    --background: hsl(196, 30%, 1%);
-    --foreground: hsl(196, 40%, 98%);
-    --muted: hsl(196, 28%, 10%);
-    --muted-foreground: hsl(196, 0%, 71%);
-    --hover-effect: hsl(0, 0%, 18%);
-    --popover: hsl(196, 30%, 1%);
-    --popover-foreground: hsl(196, 40%, 98%);
-    --card: hsl(196, 30%, 2%);
-    --card-foreground: hsl(196, 40%, 99%);
-    --border: hsl(196, 5%, 11%);
-    --input: hsl(196, 5%, 11%);
-    --primary: hsl(196, 77%, 75%);
-    --primary-foreground: hsl(196, 77%, 15%);
-    --secondary: hsl(196, 2%, 12%);
-    --secondary-foreground: hsl(196, 2%, 72%);
-    --accent: hsl(196, 11%, 18%);
-    --accent-foreground: hsl(196, 11%, 78%);
-    --destructive: hsl(0, 100%, 80%);
-    --destructive-foreground: hsl(22, 92%, 0%);
-    --ring: hsl(196, 77%, 75%);
-    --chart-1: hsl(196, 77%, 75%);
-    --chart-2: hsl(196, 2%, 12%);
-    --chart-3: hsl(196, 11%, 18%);
-    --chart-4: hsl(196, 2%, 15%);
-    --chart-5: hsl(196, 80%, 75%);
+    --background: hsl(210, 22%, 10%);
+    --foreground: hsl(210, 22%, 95%);
+    --muted: hsl(210, 22%, 20%);
+    --muted-foreground: hsl(210, 22%, 75%);
+    --hover-effect: hsl(210, 22%, 30%);
+    --popover: hsl(210, 22%, 10%);
+    --popover-foreground: hsl(210, 22%, 95%);
+    --card: hsl(210, 22%, 15%);
+    --card-foreground: hsl(210, 22%, 90%);
+    --border: hsl(210, 22%, 25%);
+    --input: hsl(210, 22%, 25%);
+    --input-hover: hsl(210, 22%, 35%);
+    --primary: hsl(210, 77%, 75%);
+    --primary-foreground: hsl(210, 77%, 15%);
+    --secondary: hsl(210, 22%, 20%);
+    --secondary-foreground: hsl(210, 22%, 75%);
+    --accent: hsl(210, 22%, 30%);
+    --accent-foreground: hsl(210, 22%, 85%);
+    --destructive: hsl(0, 100%, 70%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --ring: hsl(210, 77%, 75%);
+    --chart-1: hsl(210, 77%, 75%);
+    --chart-2: hsl(210, 22%, 20%);
+    --chart-3: hsl(210, 22%, 30%);
+    --chart-4: hsl(210, 22%, 35%);
+    --chart-5: hsl(210, 77%, 75%);
   }
 }
 
