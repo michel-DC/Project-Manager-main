@@ -103,7 +103,7 @@ const HeroSection = () => {
 
             <div className="xl:col-span-1 w-full">
               <img
-                className="w-full h-auto mx-auto rounded-lg relative z-10 lg:w-3/4 xl:w-2/3"
+                className="w-full h-auto mx-auto rounded-lg relative z-10"
                 src="Hero/illustration.png"
                 alt="Image d'illustration"
               />
